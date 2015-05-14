@@ -20,7 +20,7 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
     func getObservations(completion: (NSDictionary?, NSError?) -> Void) {
         
         var params = NSMutableDictionary()
-        params["q"] = "Black Phoebe"
+        params["q"] = "Western Scrub-Jay"
         self.GET("observations.json", parameters: params,
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 //println(response)

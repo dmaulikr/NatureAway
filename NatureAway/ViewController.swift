@@ -17,12 +17,13 @@ class ViewController: UIViewController {
             println(response)
             if let response = response, photos = response["photos"] as? [NSDictionary] {
                 if photos.count > 0 {
-                    let photo = photos[0]
-                    var imageView = UIImageView(frame: CGRect(x: 0, y:0, width: 200, height: 200))
-                    imageView.backgroundColor = UIColor.blackColor()
-                    self.view.addSubview(imageView)
-                    if let urlString = photo["large_url"] as? String {
-                        imageView.setImageWithURL(NSURL(string: urlString))
+                    for (index, photo) in enumerate(photos) {
+                        var imageView = UIImageView(frame: CGRect(x: 0, y:index*200, width: 200, height: 200))
+                        imageView.backgroundColor = UIColor.blackColor()
+                        self.view.addSubview(imageView)
+                        if let urlString = photo["large_url"] as? String {
+                            imageView.setImageWithURL(NSURL(string: urlString))
+                        }
                     }
                 }
             }
