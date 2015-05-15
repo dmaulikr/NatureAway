@@ -13,16 +13,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        INaturalistClient.sharedInstance.getObservations { (response, error) -> Void in
-            println(response)
-            if let response = response, photos = response["photos"] as? [NSDictionary] {
-                if photos.count > 0 {
-                    for (index, photo) in enumerate(photos) {
-                        var imageView = UIImageView(frame: CGRect(x: 0, y:index*200, width: 200, height: 200))
-                        imageView.backgroundColor = UIColor.blackColor()
-                        self.view.addSubview(imageView)
-                        if let urlString = photo["large_url"] as? String {
+        INaturalistClient.sharedInstance.getObservations { (observations: [Observation]?, error: NSError?) -> Void in
+            if let observations = observations {
+                var photoCount = 0
+                for observation in observations {
+                    if let largeUrlStrings = observation.largeUrlStrings {
+                        for urlString in largeUrlStrings {
+                            var imageView = UIImageView(frame: CGRect(x: 0, y:photoCount*100, width: 100, height: 100))
+                            imageView.backgroundColor = UIColor.blackColor()
+                            self.view.addSubview(imageView)
                             imageView.setImageWithURL(NSURL(string: urlString))
+                            photoCount++
                         }
                     }
                 }

@@ -17,16 +17,17 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
  
     static let sharedInstance = INaturalistClient(baseURL: NSURL(string: iNaturalistBaseUrlString), consumerKey: iNaturalistConsumerKey, consumerSecret: iNaturalistConsumerSecret)
     
-    func getObservations(completion: (NSDictionary?, NSError?) -> Void) {
+    func getObservations(completion: ([Observation]?, NSError?) -> Void) {
         
         var params = NSMutableDictionary()
-        params["q"] = "Western Scrub-Jay"
+        params["taxon_name"] = "Black Phoebe"
         self.GET("observations.json", parameters: params,
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                //println(response)
                 if let array = response as? [NSDictionary] {
-                    completion(response[0] as? NSDictionary, nil)
+                    var observations = Observation.observationsWithArray(array)
+                    completion(observations, nil)
                 }
+                completion(nil, nil)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 println(error)

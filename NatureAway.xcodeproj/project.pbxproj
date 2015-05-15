@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D51201B0469D5002F1DA1 /* INaturalistClient.swift */; };
+		550D518D1B058793002F1DA1 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D518C1B058793002F1DA1 /* Observation.swift */; };
 		552D23C81B0468C80034A2C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D23C71B0468C80034A2C5 /* AppDelegate.swift */; };
 		552D23CA1B0468C80034A2C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D23C91B0468C80034A2C5 /* ViewController.swift */; };
 		552D23CD1B0468C80034A2C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552D23CB1B0468C80034A2C5 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		51BEA1E59558A1C5A6DF055A /* libPods-NatureAway.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NatureAway.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		550D51201B0469D5002F1DA1 /* INaturalistClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INaturalistClient.swift; sourceTree = "<group>"; };
 		550D51221B046A88002F1DA1 /* NatureAway-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NatureAway-Bridging-Header.h"; sourceTree = "<group>"; };
+		550D518C1B058793002F1DA1 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 		552D23C21B0468C80034A2C5 /* NatureAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NatureAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		552D23C61B0468C80034A2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552D23C71B0468C80034A2C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 			path = "API Clients";
 			sourceTree = "<group>";
 		};
+		550D518B1B0586E9002F1DA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				550D518C1B058793002F1DA1 /* Observation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		552D23B91B0468C80034A2C5 = {
 			isa = PBXGroup;
 			children = (
@@ -106,12 +116,13 @@
 			children = (
 				550D511F1B0469A7002F1DA1 /* API Clients */,
 				552D23C71B0468C80034A2C5 /* AppDelegate.swift */,
-				552D23C91B0468C80034A2C5 /* ViewController.swift */,
-				552D23CB1B0468C80034A2C5 /* Main.storyboard */,
 				552D23CE1B0468C80034A2C5 /* Images.xcassets */,
 				552D23D01B0468C80034A2C5 /* LaunchScreen.xib */,
-				552D23C51B0468C80034A2C5 /* Supporting Files */,
+				552D23CB1B0468C80034A2C5 /* Main.storyboard */,
+				550D518B1B0586E9002F1DA1 /* Models */,
 				550D51221B046A88002F1DA1 /* NatureAway-Bridging-Header.h */,
+				552D23C51B0468C80034A2C5 /* Supporting Files */,
+				552D23C91B0468C80034A2C5 /* ViewController.swift */,
 			);
 			path = NatureAway;
 			sourceTree = "<group>";
@@ -284,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550D518D1B058793002F1DA1 /* Observation.swift in Sources */,
 				552D23CA1B0468C80034A2C5 /* ViewController.swift in Sources */,
 				552D23C81B0468C80034A2C5 /* AppDelegate.swift in Sources */,
 				550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */,
