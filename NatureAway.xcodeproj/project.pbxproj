@@ -10,7 +10,7 @@
 		550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D51201B0469D5002F1DA1 /* INaturalistClient.swift */; };
 		550D518D1B058793002F1DA1 /* Observation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550D518C1B058793002F1DA1 /* Observation.swift */; };
 		552D23C81B0468C80034A2C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D23C71B0468C80034A2C5 /* AppDelegate.swift */; };
-		552D23CA1B0468C80034A2C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D23C91B0468C80034A2C5 /* ViewController.swift */; };
+		552D23CA1B0468C80034A2C5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D23C91B0468C80034A2C5 /* SearchViewController.swift */; };
 		552D23CD1B0468C80034A2C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 552D23CB1B0468C80034A2C5 /* Main.storyboard */; };
 		552D23CF1B0468C80034A2C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 552D23CE1B0468C80034A2C5 /* Images.xcassets */; };
 		552D23D21B0468C80034A2C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552D23D01B0468C80034A2C5 /* LaunchScreen.xib */; };
@@ -37,7 +37,7 @@
 		552D23C21B0468C80034A2C5 /* NatureAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NatureAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		552D23C61B0468C80034A2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552D23C71B0468C80034A2C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		552D23C91B0468C80034A2C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		552D23C91B0468C80034A2C5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		552D23CC1B0468C80034A2C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		552D23CE1B0468C80034A2C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		552D23D11B0468C80034A2C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				550D518B1B0586E9002F1DA1 /* Models */,
 				550D51221B046A88002F1DA1 /* NatureAway-Bridging-Header.h */,
 				552D23C51B0468C80034A2C5 /* Supporting Files */,
-				552D23C91B0468C80034A2C5 /* ViewController.swift */,
+				552D23C91B0468C80034A2C5 /* SearchViewController.swift */,
 			);
 			path = NatureAway;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				550D518D1B058793002F1DA1 /* Observation.swift in Sources */,
-				552D23CA1B0468C80034A2C5 /* ViewController.swift in Sources */,
+				552D23CA1B0468C80034A2C5 /* SearchViewController.swift in Sources */,
 				552D23C81B0468C80034A2C5 /* AppDelegate.swift in Sources */,
 				550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */,
 			);

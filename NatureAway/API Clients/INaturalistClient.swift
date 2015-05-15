@@ -17,10 +17,9 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
  
     static let sharedInstance = INaturalistClient(baseURL: NSURL(string: iNaturalistBaseUrlString), consumerKey: iNaturalistConsumerKey, consumerSecret: iNaturalistConsumerSecret)
     
-    func getObservations(completion: ([Observation]?, NSError?) -> Void) {
-        
+    func getObservations(taxonName: String, completion: ([Observation]?, NSError?) -> Void) {
         var params = NSMutableDictionary()
-        params["taxon_name"] = "Black Phoebe"
+        params["taxon_name"] = taxonName
         self.GET("observations.json", parameters: params,
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 if let array = response as? [NSDictionary] {
