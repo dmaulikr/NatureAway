@@ -17,9 +17,9 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
  
     static let sharedInstance = INaturalistClient(baseURL: NSURL(string: iNaturalistBaseUrlString), consumerKey: iNaturalistConsumerKey, consumerSecret: iNaturalistConsumerSecret)
     
-    func getObservations(taxonName: String, completion: ([Observation]?, NSError?) -> Void) {
+    func getObservations(taxonId: Int64, completion: ([Observation]?, NSError?) -> Void) {
         var params = NSMutableDictionary()
-        params["q"] = taxonName
+        params["taxon_id"] = String(taxonId)
         self.GET("observations.json", parameters: params,
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 if let array = response as? [NSDictionary] {
@@ -33,7 +33,7 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
                 completion(nil, error)
         })
     }
-    
+
     func getSpecies(taxonName: String, completion: ([Species]?, NSError?) -> Void) {
         var params = NSMutableDictionary()
         params["q"] = taxonName

@@ -17,6 +17,8 @@
 		552D23DE1B0468C80034A2C5 /* NatureAwayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D23DD1B0468C80034A2C5 /* NatureAwayTests.swift */; };
 		5589966F1B06BCD9004F9DE3 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589966E1B06BCD9004F9DE3 /* GridCell.swift */; };
 		558996751B070390004F9DE3 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558996741B07038F004F9DE3 /* Species.swift */; };
+		558996791B07192C004F9DE3 /* ObservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558996781B07192C004F9DE3 /* ObservationsViewController.swift */; };
+		5589967B1B071EAB004F9DE3 /* ObservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589967A1B071EAB004F9DE3 /* ObservationCell.swift */; };
 		D73840DE63E81627BDA66C14 /* libPods-NatureAway.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BEA1E59558A1C5A6DF055A /* libPods-NatureAway.a */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +41,7 @@
 		552D23C21B0468C80034A2C5 /* NatureAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NatureAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		552D23C61B0468C80034A2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552D23C71B0468C80034A2C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		552D23C91B0468C80034A2C5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		552D23C91B0468C80034A2C5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../SearchViewController.swift; sourceTree = "<group>"; };
 		552D23CC1B0468C80034A2C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		552D23CE1B0468C80034A2C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		552D23D11B0468C80034A2C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -48,6 +50,8 @@
 		552D23DD1B0468C80034A2C5 /* NatureAwayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatureAwayTests.swift; sourceTree = "<group>"; };
 		5589966E1B06BCD9004F9DE3 /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
 		558996741B07038F004F9DE3 /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		558996781B07192C004F9DE3 /* ObservationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationsViewController.swift; sourceTree = "<group>"; };
+		5589967A1B071EAB004F9DE3 /* ObservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCell.swift; sourceTree = "<group>"; };
 		C0606D759A3D64B16E21F03F /* Pods-NatureAway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NatureAway.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NatureAway/Pods-NatureAway.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,8 +130,8 @@
 				552D23CB1B0468C80034A2C5 /* Main.storyboard */,
 				550D518B1B0586E9002F1DA1 /* Models */,
 				550D51221B046A88002F1DA1 /* NatureAway-Bridging-Header.h */,
-				552D23C91B0468C80034A2C5 /* SearchViewController.swift */,
 				552D23C51B0468C80034A2C5 /* Supporting Files */,
+				558996771B0718EB004F9DE3 /* View Controllers */,
 				5589966D1B06BCC6004F9DE3 /* Views */,
 			);
 			path = NatureAway;
@@ -162,8 +166,18 @@
 			isa = PBXGroup;
 			children = (
 				5589966E1B06BCD9004F9DE3 /* GridCell.swift */,
+				5589967A1B071EAB004F9DE3 /* ObservationCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		558996771B0718EB004F9DE3 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				552D23C91B0468C80034A2C5 /* SearchViewController.swift */,
+				558996781B07192C004F9DE3 /* ObservationsViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		AD7A164839D7099032BC5C2B /* Frameworks */ = {
@@ -312,6 +326,8 @@
 				550D518D1B058793002F1DA1 /* Observation.swift in Sources */,
 				552D23CA1B0468C80034A2C5 /* SearchViewController.swift in Sources */,
 				552D23C81B0468C80034A2C5 /* AppDelegate.swift in Sources */,
+				558996791B07192C004F9DE3 /* ObservationsViewController.swift in Sources */,
+				5589967B1B071EAB004F9DE3 /* ObservationCell.swift in Sources */,
 				550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */,
 				558996751B070390004F9DE3 /* Species.swift in Sources */,
 				5589966F1B06BCD9004F9DE3 /* GridCell.swift in Sources */,

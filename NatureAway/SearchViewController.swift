@@ -21,7 +21,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
         searchBar.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        
+        search("")
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +67,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
             return species.count
         }
         return 0
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell), observationsViewController = segue.destinationViewController as?ObservationsViewController, species = species {
+            let selectedSpecies = species[indexPath.row]
+            observationsViewController.species = selectedSpecies
+        }
     }
 }
 

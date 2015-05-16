@@ -17,9 +17,7 @@ class Observation: NSObject {
     var smallUrlStrings: [String]?
     
     init(dictionary: NSDictionary) {
-        
-        println(dictionary)
-        
+
         latitudeString = dictionary["latitude"] as? String
         longitudeString = dictionary["longitude"] as? String
         

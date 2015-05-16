@@ -10,7 +10,7 @@ import Foundation
 
 class Species: NSObject {
     
-    var id: String?
+    var id: Int64?
     var commonName: String?
     
     var smallUrlString: String?
@@ -19,8 +19,10 @@ class Species: NSObject {
     
     init(dictionary: NSDictionary) {
         
-        id = dictionary["id"] as? String
-        
+        if let idNumber = dictionary["id"] as? NSNumber {
+            id = idNumber.longLongValue
+        }
+
         if let commonNameDictionary = dictionary["common_name"] as? NSDictionary {
             commonName = commonNameDictionary["name"] as? String
         }
