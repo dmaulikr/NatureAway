@@ -8,9 +8,11 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate {
+class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+
     
     var observations: [Observation]?
     
@@ -18,6 +20,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         searchBar.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
 
     }
 
@@ -34,22 +38,39 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     func search(taxonName: String) {
         INaturalistClient.sharedInstance.getObservations(taxonName, completion: { (observations: [Observation]?, error: NSError?) -> Void in
             if let observations = observations {
-                var photoCount = 0
-                var initialY = self.searchBar.frame.maxY
-                for observation in observations {
-                    if let urlStrings = observation.smallUrlStrings {
-                        for urlString in urlStrings {
-                            var imageY = CGFloat(photoCount) * 100.0 + initialY
-                            var imageView = UIImageView(frame: CGRect(x: 0, y: imageY, width: 100, height: 100))
-                            imageView.backgroundColor = UIColor.blackColor()
-                            self.view.addSubview(imageView)
-                            imageView.setImageWithURL(NSURL(string: urlString))
-                            photoCount++
+                self.observations = observations
+                self.collectionView.reloadData()
+            }
+        })
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        if let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("GridCell", forIndexPath: indexPath) as? GridCell {
+            if let observations = observations {
+                if observations.count > indexPath.row {
+                    let observation = observations[indexPath.row]
+                    gridCell.primaryLabel.text = observation.commonNameString
+                    
+                    // TODO: Make Observation.firstSmallUrlString or something like that
+                    if let smallUrlStrings = observation.smallUrlStrings {
+                        if smallUrlStrings.count > 0 {
+                            let smallUrlString = smallUrlStrings[0]
+                            let url = NSURL(string: smallUrlString)
+                            gridCell.primaryImageView.setImageWithURL(url)
                         }
                     }
                 }
             }
-        })
+            return gridCell
+        }
+        return UICollectionViewCell()
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let observations = self.observations {
+            return observations.count
+        }
+        return 0
     }
 }
 

@@ -15,6 +15,7 @@
 		552D23CF1B0468C80034A2C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 552D23CE1B0468C80034A2C5 /* Images.xcassets */; };
 		552D23D21B0468C80034A2C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 552D23D01B0468C80034A2C5 /* LaunchScreen.xib */; };
 		552D23DE1B0468C80034A2C5 /* NatureAwayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D23DD1B0468C80034A2C5 /* NatureAwayTests.swift */; };
+		5589966F1B06BCD9004F9DE3 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589966E1B06BCD9004F9DE3 /* GridCell.swift */; };
 		D73840DE63E81627BDA66C14 /* libPods-NatureAway.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BEA1E59558A1C5A6DF055A /* libPods-NatureAway.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		552D23D71B0468C80034A2C5 /* NatureAwayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NatureAwayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		552D23DC1B0468C80034A2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552D23DD1B0468C80034A2C5 /* NatureAwayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatureAwayTests.swift; sourceTree = "<group>"; };
+		5589966E1B06BCD9004F9DE3 /* GridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCell.swift; sourceTree = "<group>"; };
 		C0606D759A3D64B16E21F03F /* Pods-NatureAway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NatureAway.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NatureAway/Pods-NatureAway.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,8 +123,9 @@
 				552D23CB1B0468C80034A2C5 /* Main.storyboard */,
 				550D518B1B0586E9002F1DA1 /* Models */,
 				550D51221B046A88002F1DA1 /* NatureAway-Bridging-Header.h */,
-				552D23C51B0468C80034A2C5 /* Supporting Files */,
 				552D23C91B0468C80034A2C5 /* SearchViewController.swift */,
+				552D23C51B0468C80034A2C5 /* Supporting Files */,
+				5589966D1B06BCC6004F9DE3 /* Views */,
 			);
 			path = NatureAway;
 			sourceTree = "<group>";
@@ -150,6 +153,14 @@
 				552D23DC1B0468C80034A2C5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5589966D1B06BCC6004F9DE3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5589966E1B06BCD9004F9DE3 /* GridCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		AD7A164839D7099032BC5C2B /* Frameworks */ = {
@@ -299,6 +310,7 @@
 				552D23CA1B0468C80034A2C5 /* SearchViewController.swift in Sources */,
 				552D23C81B0468C80034A2C5 /* AppDelegate.swift in Sources */,
 				550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */,
+				5589966F1B06BCD9004F9DE3 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
