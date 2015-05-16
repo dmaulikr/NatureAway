@@ -12,9 +12,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
-
     
-    var observations: [Observation]?
+    var species: [Species]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +35,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
     }
     
     func search(taxonName: String) {
-        INaturalistClient.sharedInstance.getObservations(taxonName, completion: { (observations: [Observation]?, error: NSError?) -> Void in
-            if let observations = observations {
-                self.observations = observations
+        INaturalistClient.sharedInstance.getSpecies(taxonName, completion: { (species: [Species]?, error: NSError?) -> Void in
+            if let species = species  {
+                self.species = species
                 self.collectionView.reloadData()
             }
         })
@@ -46,18 +45,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("GridCell", forIndexPath: indexPath) as? GridCell {
-            if let observations = observations {
-                if observations.count > indexPath.row {
-                    let observation = observations[indexPath.row]
-                    gridCell.primaryLabel.text = observation.commonNameString
+            if let species = species {
+                if species.count > indexPath.row {
+                    let singleSpecies = species[indexPath.row]
+                    gridCell.primaryLabel.text = singleSpecies.commonName
                     
-                    // TODO: Make Observation.firstSmallUrlString or something like that
-                    if let smallUrlStrings = observation.smallUrlStrings {
-                        if smallUrlStrings.count > 0 {
-                            let smallUrlString = smallUrlStrings[0]
-                            let url = NSURL(string: smallUrlString)
-                            gridCell.primaryImageView.setImageWithURL(url)
-                        }
+                    if let squareUrlString = singleSpecies.squareUrlString {
+                        let url = NSURL(string: squareUrlString)
+                        gridCell.primaryImageView.setImageWithURL(url)
                     }
                 }
             }
@@ -67,8 +62,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let observations = self.observations {
-            return observations.count
+        if let species = self.species {
+            return species.count
         }
         return 0
     }
