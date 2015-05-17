@@ -19,6 +19,9 @@
 		558996751B070390004F9DE3 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558996741B07038F004F9DE3 /* Species.swift */; };
 		558996791B07192C004F9DE3 /* ObservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558996781B07192C004F9DE3 /* ObservationsViewController.swift */; };
 		5589967B1B071EAB004F9DE3 /* ObservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589967A1B071EAB004F9DE3 /* ObservationCell.swift */; };
+		8270767A1B08324C00FCF47A /* ZilyoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827076791B08324C00FCF47A /* ZilyoClient.swift */; };
+		8270767C1B08375400FCF47A /* RentalListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270767B1B08375400FCF47A /* RentalListing.swift */; };
+		8270767E1B086CD100FCF47A /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270767D1B086CD100FCF47A /* ListingViewController.swift */; };
 		D73840DE63E81627BDA66C14 /* libPods-NatureAway.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BEA1E59558A1C5A6DF055A /* libPods-NatureAway.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,9 @@
 		558996741B07038F004F9DE3 /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		558996781B07192C004F9DE3 /* ObservationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationsViewController.swift; sourceTree = "<group>"; };
 		5589967A1B071EAB004F9DE3 /* ObservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCell.swift; sourceTree = "<group>"; };
+		827076791B08324C00FCF47A /* ZilyoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZilyoClient.swift; sourceTree = "<group>"; };
+		8270767B1B08375400FCF47A /* RentalListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalListing.swift; sourceTree = "<group>"; };
+		8270767D1B086CD100FCF47A /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		C0606D759A3D64B16E21F03F /* Pods-NatureAway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NatureAway.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NatureAway/Pods-NatureAway.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				550D51201B0469D5002F1DA1 /* INaturalistClient.swift */,
+				827076791B08324C00FCF47A /* ZilyoClient.swift */,
 			);
 			path = "API Clients";
 			sourceTree = "<group>";
@@ -96,6 +103,7 @@
 			children = (
 				550D518C1B058793002F1DA1 /* Observation.swift */,
 				558996741B07038F004F9DE3 /* Species.swift */,
+				8270767B1B08375400FCF47A /* RentalListing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 			children = (
 				552D23C91B0468C80034A2C5 /* SearchViewController.swift */,
 				558996781B07192C004F9DE3 /* ObservationsViewController.swift */,
+				8270767D1B086CD100FCF47A /* ListingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -323,10 +332,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8270767C1B08375400FCF47A /* RentalListing.swift in Sources */,
 				550D518D1B058793002F1DA1 /* Observation.swift in Sources */,
+				8270767E1B086CD100FCF47A /* ListingViewController.swift in Sources */,
 				552D23CA1B0468C80034A2C5 /* SearchViewController.swift in Sources */,
 				552D23C81B0468C80034A2C5 /* AppDelegate.swift in Sources */,
 				558996791B07192C004F9DE3 /* ObservationsViewController.swift in Sources */,
+				8270767A1B08324C00FCF47A /* ZilyoClient.swift in Sources */,
 				5589967B1B071EAB004F9DE3 /* ObservationCell.swift in Sources */,
 				550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */,
 				558996751B070390004F9DE3 /* Species.swift in Sources */,

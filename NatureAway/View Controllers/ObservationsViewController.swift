@@ -59,4 +59,17 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
         return 0
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)!
+        
+        let observation = observations![indexPath.row]
+        
+        println(observation)
+        
+        let listingViewController = segue.destinationViewController as! ListingViewController
+        
+        //listingViewController.observation = observation
+    }
+    
 }
