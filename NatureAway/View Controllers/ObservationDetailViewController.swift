@@ -28,9 +28,9 @@ class ObservationDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         headerImageView.clipsToBounds = true
         
-        if let observation = observation, urlString = observation.firstLargeUrlString {
-            let url = NSURL(string: urlString)
-            headerImageView.setImageWithURL(url)
+        if let observation = observation, urlString = observation.firstLargeUrlString, url = NSURL(string: urlString) {
+            let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
+            headerImageView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success: nil, failure: nil)            
         }
     }
 

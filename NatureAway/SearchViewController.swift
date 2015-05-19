@@ -51,9 +51,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
                     let singleSpecies = species[indexPath.row]
                     gridCell.primaryLabel.text = singleSpecies.commonName
                     
-                    if let squareUrlString = singleSpecies.squareUrlString {
-                        let url = NSURL(string: squareUrlString)
-                        gridCell.primaryImageView.setImageWithURL(url)
+                    if let squareUrlString = singleSpecies.squareUrlString, let url = NSURL(string: squareUrlString) {
+                        let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
+                        gridCell.primaryImageView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success: nil, failure: nil)
                     }
                 }
             }

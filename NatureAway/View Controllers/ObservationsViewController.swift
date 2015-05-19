@@ -34,12 +34,11 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
                 var observation = observations[indexPath.row]
                 cell.nameLabel.text = observation.commonNameString
                 
-                
-                if let urlString = observation.firstSmallUrlString {
-                    var url = NSURL(string: urlString)
-                    cell.observationImageView.setImageWithURL(url)
+                if let urlString = observation.firstSmallUrlString, url = NSURL(string: urlString) {
+                    let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
+                    cell.observationImageView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success: nil, failure: nil)
                 }
-                
+
                 if let latitudeString = observation.latitudeString {
                     cell.latitudeLabel.text = latitudeString
                 }

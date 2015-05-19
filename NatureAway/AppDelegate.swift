@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
         
+        let urlCache = NSURLCache(memoryCapacity: 10 * 1024 * 1024, diskCapacity: 200 * 1024 * 1024, diskPath: nil)
+        NSURLCache.setSharedURLCache(urlCache)
+        
         return true
     }
 
