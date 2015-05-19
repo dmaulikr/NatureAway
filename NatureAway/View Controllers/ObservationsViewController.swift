@@ -32,7 +32,7 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
         if let cell = tableView.dequeueReusableCellWithIdentifier("ObservationCell", forIndexPath: indexPath) as? ObservationCell {
             if let observations = observations {
                 var observation = observations[indexPath.row]
-                cell.nameLabel.text = observation.commonNameString
+                cell.nameLabel.text = observation.primaryName
                 
                 if let urlString = observation.firstSmallUrlString, url = NSURL(string: urlString) {
                     let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)

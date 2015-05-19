@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--NatureAway-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="SearchViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +110,7 @@
                             <constraint firstItem="DJw-ke-6iK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="jME-6M-hAX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eqV-yt-9of"/>
+                    <navigationItem key="navigationItem" title="NatureAway" id="eqV-yt-9of"/>
                     <connections>
                         <outlet property="collectionView" destination="RCu-3q-AFF" id="nLI-Qx-4wO"/>
                         <outlet property="searchBar" destination="DJw-ke-6iK" id="EUi-kd-iDf"/>
@@ -133,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ks5-BB-SbN">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="63" width="600" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="79" id="tCU-5L-gaY" customClass="ObservationCell" customModule="NatureAway" customModuleProvider="target">
@@ -192,11 +192,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DyB-xZ-tlY" firstAttribute="top" secondItem="ks5-BB-SbN" secondAttribute="bottom" id="Aio-k9-WRD"/>
-                            <constraint firstItem="ks5-BB-SbN" firstAttribute="top" secondItem="lkb-13-6V4" secondAttribute="top" id="H0q-GB-XuB"/>
+                            <constraint firstItem="DyB-xZ-tlY" firstAttribute="top" secondItem="ks5-BB-SbN" secondAttribute="bottom" constant="-63" id="Aio-k9-WRD"/>
+                            <constraint firstItem="DyB-xZ-tlY" firstAttribute="top" secondItem="ks5-BB-SbN" secondAttribute="bottom" id="Da8-DT-YzF"/>
+                            <constraint firstItem="ks5-BB-SbN" firstAttribute="top" secondItem="lkb-13-6V4" secondAttribute="top" constant="63" id="H0q-GB-XuB"/>
                             <constraint firstAttribute="trailing" secondItem="ks5-BB-SbN" secondAttribute="trailing" id="Vas-eM-9jO"/>
                             <constraint firstItem="ks5-BB-SbN" firstAttribute="leading" secondItem="lkb-13-6V4" secondAttribute="leading" id="ohv-1i-Cb2"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Aio-k9-WRD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="menu-2-icon-24" id="erE-lx-QVJ"/>
                     <connections>
@@ -276,10 +282,10 @@
             </objects>
             <point key="canvasLocation" x="489" y="-442"/>
         </scene>
-        <!--Observation Tab Controller-->
+        <!--Observations-->
         <scene sceneID="J4y-T2-NsM">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1YJ-5D-xfO" customClass="ObservationTabController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController title="Observations" automaticallyAdjustsScrollViewInsets="NO" id="1YJ-5D-xfO" customClass="ObservationTabController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="k3Q-hh-IA3">

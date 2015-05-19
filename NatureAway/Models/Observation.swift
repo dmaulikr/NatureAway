@@ -13,6 +13,7 @@ class Observation: NSObject, MKAnnotation {
     
     var latitudeString: String?
     var longitudeString: String?
+    var nameString: String?
     var commonNameString: String?
     var iconicTaxonName: String?
     var largeUrlStrings: [String]?
@@ -34,9 +35,18 @@ class Observation: NSObject, MKAnnotation {
         return urlString
     }
     
+    var primaryName: String {
+        if let commonName = commonNameString {
+            return commonName
+        } else if let nameString = nameString {
+            return nameString
+        }
+        return String()
+    }
+    
     // Required for MKAnnotation
     let coordinate: CLLocationCoordinate2D
-    let title: String
+    var title: String
 
     init(dictionary: NSDictionary) {
 
@@ -53,11 +63,16 @@ class Observation: NSObject, MKAnnotation {
         }
 
         coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        if let taxon = dictionary["taxon"] as? NSDictionary, commonName = taxon["common_name"] as? NSDictionary {
-            commonNameString = commonName["name"] as? String
-            title = commonNameString!
-        } else {
-            title = "unknown"
+        title = "unknown"
+        if let taxon = dictionary["taxon"] as? NSDictionary {
+            if let commonName = taxon["common_name"] as? NSDictionary {
+                commonNameString = commonName["name"] as? String
+                title = commonNameString!
+            }
+            
+            if let name = taxon["name"] as? String {
+                nameString = name
+            }
         }
         
         iconicTaxonName = dictionary["iconic_taxon_name"] as? String

@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ObservationDetailViewController" customModule="NatureAway" customModuleProvider="target">
             <connections>
+                <outlet property="commonNameLabel" destination="bnL-Ne-fgb" id="ClY-Sz-H8b"/>
                 <outlet property="headerImageView" destination="Zcb-c1-Vkb" id="DX6-gv-Qq9"/>
+                <outlet property="speciesNameLabel" destination="64l-Iq-BA4" id="bmb-C1-BOk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,13 +25,55 @@
                         <constraint firstAttribute="height" constant="250" id="a2s-xI-asE"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red-Tailed Hawk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnL-Ne-fgb">
+                    <rect key="frame" x="13" y="322" width="131" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="7o2-gi-ecB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buteo jamaicensis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64l-Iq-BA4">
+                    <rect key="frame" x="12" y="345" width="132" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ZDm-P6-bJJ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="wwP-on-yNm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="wwP-on-yNm"/>
+                        </mask>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="2p7-dP-spv"/>
+                <constraint firstItem="bnL-Ne-fgb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="4IE-fj-sla"/>
+                <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="bnL-Ne-fgb" secondAttribute="trailing" constant="8" id="7WJ-Mw-csz"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bnL-Ne-fgb" secondAttribute="trailing" constant="8" id="Rme-MJ-iSY"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="64l-Iq-BA4" secondAttribute="trailing" constant="8" id="V2f-6k-CAe"/>
+                <constraint firstItem="bnL-Ne-fgb" firstAttribute="top" secondItem="Zcb-c1-Vkb" secondAttribute="bottom" constant="8" id="aMw-AL-vhY"/>
                 <constraint firstAttribute="trailing" secondItem="Zcb-c1-Vkb" secondAttribute="trailing" id="d70-Rk-WVN"/>
+                <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="bnL-Ne-fgb" secondAttribute="trailing" constant="8" id="iqs-za-rGr"/>
+                <constraint firstItem="64l-Iq-BA4" firstAttribute="top" secondItem="Zcb-c1-Vkb" secondAttribute="bottom" constant="8" id="l8Q-CG-9cK"/>
+                <constraint firstItem="64l-Iq-BA4" firstAttribute="top" secondItem="bnL-Ne-fgb" secondAttribute="bottom" constant="2" id="owG-2s-xGu"/>
                 <constraint firstItem="Zcb-c1-Vkb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="rJX-LL-KcA"/>
+                <constraint firstAttribute="trailing" secondItem="64l-Iq-BA4" secondAttribute="trailing" constant="456" id="vul-ta-kf7"/>
                 <constraint firstItem="Zcb-c1-Vkb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zF7-Gd-5JN"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7WJ-Mw-csz"/>
+                    <exclude reference="iqs-za-rGr"/>
+                    <exclude reference="l8Q-CG-9cK"/>
+                    <exclude reference="vul-ta-kf7"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

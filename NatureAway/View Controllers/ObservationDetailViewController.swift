@@ -12,6 +12,9 @@ class ObservationDetailViewController: UIViewController {
     
     var observation: Observation?
 
+    @IBOutlet weak var commonNameLabel: UILabel!
+    @IBOutlet weak var speciesNameLabel: UILabel!
+    
     @IBOutlet weak var headerImageView: UIImageView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -28,9 +31,14 @@ class ObservationDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         headerImageView.clipsToBounds = true
         
-        if let observation = observation, urlString = observation.firstLargeUrlString, url = NSURL(string: urlString) {
-            let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
-            headerImageView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success: nil, failure: nil)            
+        if let observation = observation {
+            if let urlString = observation.firstLargeUrlString, url = NSURL(string: urlString) {
+                let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
+                headerImageView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success: nil, failure: nil)
+            }
+            
+            commonNameLabel.text = observation.commonNameString
+            speciesNameLabel.text = observation.nameString            
         }
     }
 
