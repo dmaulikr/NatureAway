@@ -8,10 +8,13 @@
 
 import Foundation
 
-class ObservationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ObservationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ObservationTab {
 
-    var species: Species?
-    var observations: [Observation]?
+    var observations: [Observation]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,18 +22,6 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
         
         tableView.delegate = self
         tableView.dataSource = self
-        loadObservations()
-    }
-    
-    func loadObservations() {
-        if let species = species, taxonId = species.id {
-            INaturalistClient.sharedInstance.getObservations(taxonId, completion: { (observations: [Observation]?, error: NSError?) -> Void in
-                if let observations = observations {
-                    self.observations = observations
-                    self.tableView.reloadData()
-                }
-            })
-        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

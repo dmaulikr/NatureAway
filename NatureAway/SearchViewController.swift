@@ -70,9 +70,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell), observationsViewController = segue.destinationViewController as?ObservationsViewController, species = species {
+        if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell), tabController = segue.destinationViewController as? ObservationTabController, species = species {
             let selectedSpecies = species[indexPath.row]
-            observationsViewController.species = selectedSpecies
+            tabController.species = selectedSpecies
         }
     }
 }

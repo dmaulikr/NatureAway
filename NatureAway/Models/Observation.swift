@@ -7,24 +7,45 @@
 //
 
 import Foundation
+import MapKit
 
-class Observation: NSObject {
+class Observation: NSObject, MKAnnotation {
     
     var latitudeString: String?
     var longitudeString: String?
     var commonNameString: String?
+    var iconicTaxonName: String?
     var largeUrlStrings: [String]?
     var smallUrlStrings: [String]?
     
+    // Required for MKAnnotation
+    let coordinate: CLLocationCoordinate2D
+    let title: String
+
     init(dictionary: NSDictionary) {
 
         latitudeString = dictionary["latitude"] as? String
         longitudeString = dictionary["longitude"] as? String
         
+        var latitude = 0.0
+        var longitude = 0.0
+        if let latitudeString = latitudeString {
+            if let longitudeString = longitudeString {
+                latitude = (latitudeString as NSString).doubleValue
+                longitude = (longitudeString as NSString).doubleValue
+            }
+        }
+
+        coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         if let taxon = dictionary["taxon"] as? NSDictionary, commonName = taxon["common_name"] as? NSDictionary {
             commonNameString = commonName["name"] as? String
+            title = commonNameString!
+        } else {
+            title = "unknown"
         }
         
+        iconicTaxonName = dictionary["iconic_taxon_name"] as? String
+
         if let photosArray = dictionary["photos"] as? [NSDictionary] {
             largeUrlStrings = [String]()
             smallUrlStrings = [String]()
@@ -37,6 +58,8 @@ class Observation: NSObject {
                 }
             }
         }
+
+        super.init()
     }
     
     class func observationsWithArray(array: [NSDictionary]) -> [Observation] {

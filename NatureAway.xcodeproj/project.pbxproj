@@ -22,6 +22,11 @@
 		8270767A1B08324C00FCF47A /* ZilyoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827076791B08324C00FCF47A /* ZilyoClient.swift */; };
 		8270767C1B08375400FCF47A /* RentalListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270767B1B08375400FCF47A /* RentalListing.swift */; };
 		8270767E1B086CD100FCF47A /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270767D1B086CD100FCF47A /* ListingViewController.swift */; };
+		8A4825011B0A614800C3BFC2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4825001B0A614800C3BFC2 /* MapViewController.swift */; };
+		8A4825031B0A616A00C3BFC2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A4825021B0A616A00C3BFC2 /* MapKit.framework */; };
+		8A4825051B0A88F400C3BFC2 /* ObservationTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4825041B0A88F400C3BFC2 /* ObservationTabController.swift */; };
+		8A4825071B0A957500C3BFC2 /* ObservationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4825061B0A957500C3BFC2 /* ObservationAnnotationView.swift */; };
+		8A48250D1B0AB2FF00C3BFC2 /* ListingAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A48250C1B0AB2FF00C3BFC2 /* ListingAnnotationView.swift */; };
 		D73840DE63E81627BDA66C14 /* libPods-NatureAway.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BEA1E59558A1C5A6DF055A /* libPods-NatureAway.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +63,11 @@
 		827076791B08324C00FCF47A /* ZilyoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZilyoClient.swift; sourceTree = "<group>"; };
 		8270767B1B08375400FCF47A /* RentalListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalListing.swift; sourceTree = "<group>"; };
 		8270767D1B086CD100FCF47A /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
+		8A4825001B0A614800C3BFC2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		8A4825021B0A616A00C3BFC2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8A4825041B0A88F400C3BFC2 /* ObservationTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationTabController.swift; sourceTree = "<group>"; };
+		8A4825061B0A957500C3BFC2 /* ObservationAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationAnnotationView.swift; sourceTree = "<group>"; };
+		8A48250C1B0AB2FF00C3BFC2 /* ListingAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingAnnotationView.swift; sourceTree = "<group>"; };
 		C0606D759A3D64B16E21F03F /* Pods-NatureAway.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NatureAway.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NatureAway/Pods-NatureAway.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A4825031B0A616A00C3BFC2 /* MapKit.framework in Frameworks */,
 				D73840DE63E81627BDA66C14 /* libPods-NatureAway.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +186,8 @@
 			children = (
 				5589966E1B06BCD9004F9DE3 /* GridCell.swift */,
 				5589967A1B071EAB004F9DE3 /* ObservationCell.swift */,
+				8A4825061B0A957500C3BFC2 /* ObservationAnnotationView.swift */,
+				8A48250C1B0AB2FF00C3BFC2 /* ListingAnnotationView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -185,6 +198,8 @@
 				552D23C91B0468C80034A2C5 /* SearchViewController.swift */,
 				558996781B07192C004F9DE3 /* ObservationsViewController.swift */,
 				8270767D1B086CD100FCF47A /* ListingViewController.swift */,
+				8A4825001B0A614800C3BFC2 /* MapViewController.swift */,
+				8A4825041B0A88F400C3BFC2 /* ObservationTabController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -192,6 +207,7 @@
 		AD7A164839D7099032BC5C2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A4825021B0A616A00C3BFC2 /* MapKit.framework */,
 				51BEA1E59558A1C5A6DF055A /* libPods-NatureAway.a */,
 			);
 			name = Frameworks;
@@ -334,15 +350,19 @@
 			files = (
 				8270767C1B08375400FCF47A /* RentalListing.swift in Sources */,
 				550D518D1B058793002F1DA1 /* Observation.swift in Sources */,
+				8A4825071B0A957500C3BFC2 /* ObservationAnnotationView.swift in Sources */,
 				8270767E1B086CD100FCF47A /* ListingViewController.swift in Sources */,
 				552D23CA1B0468C80034A2C5 /* SearchViewController.swift in Sources */,
 				552D23C81B0468C80034A2C5 /* AppDelegate.swift in Sources */,
 				558996791B07192C004F9DE3 /* ObservationsViewController.swift in Sources */,
 				8270767A1B08324C00FCF47A /* ZilyoClient.swift in Sources */,
+				8A4825011B0A614800C3BFC2 /* MapViewController.swift in Sources */,
 				5589967B1B071EAB004F9DE3 /* ObservationCell.swift in Sources */,
 				550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */,
+				8A4825051B0A88F400C3BFC2 /* ObservationTabController.swift in Sources */,
 				558996751B070390004F9DE3 /* Species.swift in Sources */,
 				5589966F1B06BCD9004F9DE3 /* GridCell.swift in Sources */,
+				8A48250D1B0AB2FF00C3BFC2 /* ListingAnnotationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
