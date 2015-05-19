@@ -19,6 +19,8 @@
 		558996751B070390004F9DE3 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558996741B07038F004F9DE3 /* Species.swift */; };
 		558996791B07192C004F9DE3 /* ObservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558996781B07192C004F9DE3 /* ObservationsViewController.swift */; };
 		5589967B1B071EAB004F9DE3 /* ObservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589967A1B071EAB004F9DE3 /* ObservationCell.swift */; };
+		559ED1CD1B0AEF980077BE26 /* ObservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559ED1CB1B0AEF980077BE26 /* ObservationDetailViewController.swift */; };
+		559ED1CE1B0AEF980077BE26 /* ObservationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559ED1CC1B0AEF980077BE26 /* ObservationDetailViewController.xib */; };
 		8270767A1B08324C00FCF47A /* ZilyoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827076791B08324C00FCF47A /* ZilyoClient.swift */; };
 		8270767C1B08375400FCF47A /* RentalListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270767B1B08375400FCF47A /* RentalListing.swift */; };
 		8270767E1B086CD100FCF47A /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270767D1B086CD100FCF47A /* ListingViewController.swift */; };
@@ -60,6 +62,8 @@
 		558996741B07038F004F9DE3 /* Species.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		558996781B07192C004F9DE3 /* ObservationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationsViewController.swift; sourceTree = "<group>"; };
 		5589967A1B071EAB004F9DE3 /* ObservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCell.swift; sourceTree = "<group>"; };
+		559ED1CB1B0AEF980077BE26 /* ObservationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationDetailViewController.swift; sourceTree = "<group>"; };
+		559ED1CC1B0AEF980077BE26 /* ObservationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObservationDetailViewController.xib; sourceTree = "<group>"; };
 		827076791B08324C00FCF47A /* ZilyoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZilyoClient.swift; sourceTree = "<group>"; };
 		8270767B1B08375400FCF47A /* RentalListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalListing.swift; sourceTree = "<group>"; };
 		8270767D1B086CD100FCF47A /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				8270767D1B086CD100FCF47A /* ListingViewController.swift */,
 				8A4825001B0A614800C3BFC2 /* MapViewController.swift */,
 				8A4825041B0A88F400C3BFC2 /* ObservationTabController.swift */,
+				559ED1CB1B0AEF980077BE26 /* ObservationDetailViewController.swift */,
+				559ED1CC1B0AEF980077BE26 /* ObservationDetailViewController.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -297,6 +303,7 @@
 			files = (
 				552D23CD1B0468C80034A2C5 /* Main.storyboard in Resources */,
 				552D23D21B0468C80034A2C5 /* LaunchScreen.xib in Resources */,
+				559ED1CE1B0AEF980077BE26 /* ObservationDetailViewController.xib in Resources */,
 				552D23CF1B0468C80034A2C5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +369,7 @@
 				8A4825051B0A88F400C3BFC2 /* ObservationTabController.swift in Sources */,
 				558996751B070390004F9DE3 /* Species.swift in Sources */,
 				5589966F1B06BCD9004F9DE3 /* GridCell.swift in Sources */,
+				559ED1CD1B0AEF980077BE26 /* ObservationDetailViewController.swift in Sources */,
 				8A48250D1B0AB2FF00C3BFC2 /* ListingAnnotationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

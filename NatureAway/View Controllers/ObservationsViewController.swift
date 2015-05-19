@@ -8,6 +8,8 @@
 
 import Foundation
 
+let observationImageTappedNotification = "observationImageTappedNotification"
+
 class ObservationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ObservationTab {
 
     var observations: [Observation]? {
@@ -22,6 +24,8 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onObservationImageTapped:", name: observationImageTappedNotification, object: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -38,6 +42,7 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
                     }
                 }
             }
+            cell.tag = indexPath.row
             return cell
         }
         return UITableViewCell()
@@ -61,6 +66,16 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
         let listingViewController = segue.destinationViewController as! ListingViewController
         
         //listingViewController.observation = observation
+    }
+    
+    func onObservationImageTapped(notification: NSNotification) {
+        if let userInfo = notification.userInfo, index = userInfo["index"] as? Int,
+               observations = observations where observations.count > index {
+            let observation = observations[index]
+            let viewController = ObservationDetailViewController(nibName: "ObservationDetailViewController", bundle: nil)
+            viewController.observation = observation
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
 }

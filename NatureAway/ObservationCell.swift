@@ -18,11 +18,21 @@ class ObservationCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "onImageTapped")
+        observationImageView.addGestureRecognizer(tapGesture)
+        observationImageView.userInteractionEnabled = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func onImageTapped() {
+        var userInfo = [NSObject: AnyObject]()
+        userInfo["index"] = tag
+        NSNotificationCenter.defaultCenter().postNotificationName(observationImageTappedNotification, object: self, userInfo: userInfo)
     }
 }
