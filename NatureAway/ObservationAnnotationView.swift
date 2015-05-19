@@ -9,7 +9,13 @@
 import UIKit
 import MapKit
 
+protocol ObservationAnnotationViewDelegate : class {
+    func annotationInfoSelected(observation: Observation)
+}
+
 class ObservationAnnotationView: MKAnnotationView {
+    
+    weak var delegate: ObservationAnnotationViewDelegate?
 
     // Required for MKAnnotationView
     required init(coder aDecoder: NSCoder) {
@@ -69,5 +75,6 @@ class ObservationAnnotationView: MKAnnotationView {
     
     func infoButtonSelected(sender: AnyObject) {
         // segue to detail view
+        delegate?.annotationInfoSelected(self.annotation as! Observation)
     }
 }

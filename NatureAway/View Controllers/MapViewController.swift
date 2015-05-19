@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate {
+class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, ObservationAnnotationViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     var observations: [Observation]? {
@@ -55,6 +55,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate {
             var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("Observation")
             if annotationView == nil {
                 annotationView = ObservationAnnotationView(annotation: annotation, reuseIdentifier: "Observation")
+                (annotationView as! ObservationAnnotationView).delegate = self
                 annotationView.canShowCallout = true
             } else {
                 annotationView.annotation = annotation
@@ -72,6 +73,13 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate {
         } else {
             return nil
         }
+    }
+    
+    func annotationInfoSelected(observation: Observation) {
+
+        var viewController = ObservationDetailViewController(nibName: "ObservationDetailViewController", bundle: nil)
+        viewController.observation = observation
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     /*
