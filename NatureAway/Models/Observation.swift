@@ -18,6 +18,22 @@ class Observation: NSObject, MKAnnotation {
     var largeUrlStrings: [String]?
     var smallUrlStrings: [String]?
     
+    var firstLargeUrlString: String? {
+        var urlString: String? = nil
+        if let largeUrlStrings = largeUrlStrings where largeUrlStrings.count > 0 {
+            urlString = largeUrlStrings[0]
+        }
+        return urlString
+    }
+    
+    var firstSmallUrlString: String? {
+        var urlString: String? = nil
+        if let smallUrlStrings = smallUrlStrings where smallUrlStrings.count > 0 {
+            urlString = smallUrlStrings[0]
+        }
+        return urlString
+    }
+    
     // Required for MKAnnotation
     let coordinate: CLLocationCoordinate2D
     let title: String

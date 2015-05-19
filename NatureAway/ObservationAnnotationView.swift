@@ -55,13 +55,11 @@ class ObservationAnnotationView: MKAnnotationView {
             }
         }
 
-        if let images = observation.smallUrlStrings {
-            if images.count > 0 {
-                var imageView = UIImageView(frame: CGRectMake(15, 0, 40, 40))
-                imageView.setImageWithURL(NSURL(string: images[0]))
-                imageView.contentMode = .ScaleAspectFit
-                leftCalloutAccessoryView = imageView
-            }
+        if let urlString = observation.firstSmallUrlString {
+            var imageView = UIImageView(frame: CGRectMake(15, 0, 40, 40))
+            imageView.setImageWithURL(NSURL(string: urlString))
+            imageView.contentMode = .ScaleAspectFit
+            leftCalloutAccessoryView = imageView            
         }
         
         let infoButton = UIButton.buttonWithType(UIButtonType.InfoDark) as! UIButton

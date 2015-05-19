@@ -12,6 +12,8 @@ class ObservationDetailViewController: UIViewController {
     
     var observation: Observation?
 
+    @IBOutlet weak var headerImageView: UIImageView!
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -24,8 +26,11 @@ class ObservationDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let observation = observation, commonName = observation.commonNameString {
-            NSLog(commonName)
+        headerImageView.clipsToBounds = true
+        
+        if let observation = observation, urlString = observation.firstLargeUrlString {
+            let url = NSURL(string: urlString)
+            headerImageView.setImageWithURL(url)
         }
     }
 

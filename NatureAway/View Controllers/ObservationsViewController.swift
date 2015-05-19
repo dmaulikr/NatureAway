@@ -34,14 +34,22 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
                 var observation = observations[indexPath.row]
                 cell.nameLabel.text = observation.commonNameString
                 
-                if let smallUrlStrings = observation.smallUrlStrings {
-                    if smallUrlStrings.count > 0 {
-                        var urlString = smallUrlStrings[0]
-                        var url = NSURL(string: urlString)
-                        cell.observationImageView.setImageWithURL(url)
-                    }
+                
+                if let urlString = observation.firstSmallUrlString {
+                    var url = NSURL(string: urlString)
+                    cell.observationImageView.setImageWithURL(url)
+                }
+                
+                if let latitudeString = observation.latitudeString {
+                    cell.latitudeLabel.text = latitudeString
+                }
+                
+                
+                if let longitudeString = observation.longitudeString {
+                    cell.longitudeLabel.text = longitudeString
                 }
             }
+
             cell.tag = indexPath.row
             return cell
         }
