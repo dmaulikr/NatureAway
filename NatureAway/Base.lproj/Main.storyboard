@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yJs-Td-dTj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yJs-Td-dTj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--NatureAway-->
@@ -164,24 +165,36 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVB-Qw-T5G">
-                                                    <rect key="frame" x="550" y="27" width="25" height="25"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwt-sI-Que">
+                                                    <rect key="frame" x="554" y="27" width="25" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="Pa2-Yt-eVe"/>
-                                                        <constraint firstAttribute="height" constant="25" id="kc3-Xq-s2g"/>
+                                                        <constraint firstAttribute="height" constant="25" id="RuE-xZ-3Yu"/>
+                                                        <constraint firstAttribute="width" constant="25" id="vVu-cC-NAA"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="1431861429_home-128">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="K6c-uB-JhU" kind="show" identifier="toListings" id="vIq-YR-IH9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="PVB-Qw-T5G" secondAttribute="trailing" constant="25" id="lqH-NZ-eI0"/>
-                                                <constraint firstAttribute="centerY" secondItem="PVB-Qw-T5G" secondAttribute="centerY" id="zhh-na-OfY"/>
+                                                <constraint firstAttribute="centerY" secondItem="lwt-sI-Que" secondAttribute="centerY" id="2OU-CD-38n"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lwt-sI-Que" secondAttribute="trailing" constant="34" id="2X2-k0-JX5"/>
+                                                <constraint firstAttribute="centerY" secondItem="lwt-sI-Que" secondAttribute="centerY" constant="2" id="K2y-24-cCM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lwt-sI-Que" secondAttribute="trailing" constant="13" id="Kfu-wg-vGC"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="2X2-k0-JX5"/>
+                                                    <exclude reference="K2y-24-cCM"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="latitudeLabel" destination="Ak8-La-X4k" id="mZ0-6D-MCv"/>
+                                            <outlet property="listingButton" destination="lwt-sI-Que" id="e3a-ps-HC2"/>
                                             <outlet property="longitudeLabel" destination="gLR-7Q-piJ" id="UXm-oI-5lG"/>
                                             <outlet property="nameLabel" destination="Wbm-uU-o8V" id="ZCz-eM-Zca"/>
                                             <outlet property="observationImageView" destination="kpB-1C-Mqw" id="lrV-nE-tca"/>
@@ -213,10 +226,10 @@
             </objects>
             <point key="canvasLocation" x="2785" y="251"/>
         </scene>
-        <!--Listing View Controller-->
+        <!--Listings View Controller-->
         <scene sceneID="0HS-0u-Lg0">
             <objects>
-                <viewController id="K6c-uB-JhU" customClass="ListingViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="K6c-uB-JhU" customClass="ListingsViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8xb-NJ-hNa"/>
                         <viewControllerLayoutGuide type="bottom" id="q1t-7A-nFb"/>
@@ -224,8 +237,69 @@
                     <view key="view" contentMode="scaleToFill" id="QNC-kL-We8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dy0-fZ-3dc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RentalListingCell" rowHeight="128" id="6uK-UL-lJG" customClass="RentalListingCell" customModule="NatureAway" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6uK-UL-lJG" id="7dj-pw-v7O">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GeX-PX-BR4">
+                                                    <rect key="frame" x="8" y="12" width="105" height="102"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Heading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyd-ZX-oRA">
+                                                    <rect key="frame" x="128" y="12" width="65" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X Bedrooms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cn-kL-1Ra">
+                                                    <rect key="frame" x="128" y="41" width="95" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X Bathrooms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l86-a7-cYu">
+                                                    <rect key="frame" x="128" y="61" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T32-ah-Fj1">
+                                                    <rect key="frame" x="525" y="12" width="67" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$$$ per night" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbJ-n3-2uB">
+                                                    <rect key="frame" x="128" y="90" width="102" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="distanceLabel" destination="T32-ah-Fj1" id="Ijw-Ch-oP4"/>
+                                            <outlet property="headingLabel" destination="Oyd-ZX-oRA" id="Ucf-UC-SVE"/>
+                                            <outlet property="numBathroomsLabel" destination="l86-a7-cYu" id="PWi-fD-fsx"/>
+                                            <outlet property="numBedroomsLabel" destination="5cn-kL-1Ra" id="Inc-S0-Cbd"/>
+                                            <outlet property="priceLabel" destination="YbJ-n3-2uB" id="wFf-Kj-rsi"/>
+                                            <outlet property="rentalImage" destination="GeX-PX-BR4" id="hRo-TB-DXo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="dy0-fZ-3dc" id="p9B-Fe-eRu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQY-jo-FYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

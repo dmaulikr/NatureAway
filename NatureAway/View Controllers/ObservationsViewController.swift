@@ -50,6 +50,10 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
             }
 
             cell.tag = indexPath.row
+
+            cell.listingButton.addTarget(self, action: "listingButtonClicked", forControlEvents: UIControlEvents.TouchUpInside)
+            cell.listingButton.tag = indexPath.row
+            
             return cell
         }
         return UITableViewCell()
@@ -62,17 +66,23 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
         return 0
     }
     
+    func listingButtonClicked() {
+        self.performSegueWithIdentifier("toListings", sender: self)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPathForCell(cell)!
-        
-        let observation = observations![indexPath.row]
-        
-        println(observation)
-        
-        let listingViewController = segue.destinationViewController as! ListingViewController
-        
-        //listingViewController.observation = observation
+        if sender is UIButton {
+            let indexPath = sender!.tag
+            
+            let observation = observations![indexPath]
+            
+            let listingsViewController = segue.destinationViewController as! ListingsViewController
+            
+            listingsViewController.latitude = (observation.latitudeString as NSString!).floatValue
+            listingsViewController.longitude = (observation.longitudeString as NSString!).floatValue
+        } else {
+            return
+        }
     }
     
     func onObservationImageTapped(notification: NSNotification) {

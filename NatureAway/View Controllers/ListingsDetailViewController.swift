@@ -1,22 +1,19 @@
 //
-//  ListingViewController.swift
+//  ListingsDetailViewController.swift
 //  NatureAway
 //
-//  Created by Elaine Mao on 5/16/15.
+//  Created by Elaine Mao on 5/19/15.
 //  Copyright (c) 2015 rateva. All rights reserved.
 //
 
 import UIKit
 
-class ListingViewController: UIViewController {
-    
-    var observation: NSDictionary!
+class ListingsDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        println(observation)
-
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

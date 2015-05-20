@@ -14,6 +14,7 @@ class ObservationCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var listingButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,10 +30,5 @@ class ObservationCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
-    func onImageTapped() {
-        var userInfo = [NSObject: AnyObject]()
-        userInfo["index"] = tag
-        NSNotificationCenter.defaultCenter().postNotificationName(observationImageTappedNotification, object: self, userInfo: userInfo)
-    }
+
 }
