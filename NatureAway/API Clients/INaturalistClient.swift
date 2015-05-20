@@ -32,6 +32,7 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
         
         var params = NSMutableDictionary()
         params["taxon_id"] = String(taxonId)
+        params["per_page"] = 100
         params["nelat"] = neBound.latitude
         params["nelon"] = neBound.longitude
         params["swlat"] = swBound.latitude

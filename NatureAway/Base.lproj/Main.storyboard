@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yJs-Td-dTj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--NatureAway-->
@@ -189,8 +190,8 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="listingButton" destination="lwt-sI-Que" id="e3a-ps-HC2"/>
                                             <outlet property="distanceLabel" destination="Ak8-La-X4k" id="5xm-g0-oSo"/>
+                                            <outlet property="listingButton" destination="lwt-sI-Que" id="e3a-ps-HC2"/>
                                             <outlet property="nameLabel" destination="Wbm-uU-o8V" id="ZCz-eM-Zca"/>
                                             <outlet property="observationImageView" destination="kpB-1C-Mqw" id="lrV-nE-tca"/>
                                         </connections>
@@ -354,7 +355,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhB-sT-gey">
                                 <rect key="frame" x="0.0" y="501" width="600" height="50"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="250" minValue="50" maxValue="2000" translatesAutoresizingMaskIntoConstraints="NO" id="twf-1v-jWQ">
+                                    <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="500" minValue="50" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="twf-1v-jWQ">
                                         <rect key="frame" x="80.5" y="10" width="315" height="31"/>
                                         <connections>
                                             <action selector="sliderChanged:" destination="Qeq-Yj-Pb6" eventType="valueChanged" id="m0D-Lx-chn"/>
@@ -366,7 +367,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2000 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoU-78-HS0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="500 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoU-78-HS0">
                                         <rect key="frame" x="413.5" y="14.5" width="61.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

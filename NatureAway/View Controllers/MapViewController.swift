@@ -22,6 +22,12 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     @IBOutlet weak var mapView: MKMapView!
     
     private var geocoder: CLGeocoder?
+    private var searchRadius: Double {
+        get {
+            // Convert slider miles to meters
+            return Double(slider.value) * 1600
+        }
+    }
     var currentLocation: CLLocationCoordinate2D?
     
     weak var delegate: MapViewControllerDelegate?
@@ -41,10 +47,8 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
         mapView.delegate = self
         mapView.showsUserLocation = true
         if let currentLocation = self.currentLocation {
-            let radius = Double(slider.value) * 1600
-            let region = MKCoordinateRegionMakeWithDistance(currentLocation, 2 * radius, 4 * radius)
-            mapView.setRegion(region, animated: true)
-            searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: radius)
+            mapView.setCenterCoordinate(currentLocation, animated: true)
+            searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: searchRadius)
             mapView.addOverlay(searchRadiusCircle);
         }
         searchBar.delegate = self
@@ -66,7 +70,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     
     @IBAction func sliderChanged(sender: AnyObject) {
         mapView.removeOverlay(searchRadiusCircle)
-        searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: Double(slider.value) * 1600)
+        searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: searchRadius)
         mapView.addOverlay(searchRadiusCircle)
     }
     
@@ -92,15 +96,15 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     }
     
     private func updateSearchArea(center: CLLocationCoordinate2D) {
-        let radius = Double(self.slider.value) * 1600
-        let region = MKCoordinateRegionMakeWithDistance(center, radius, 2 * radius)
+        let region = MKCoordinateRegionMakeWithDistance(center, searchRadius, 2 * searchRadius)
         self.mapView.setRegion(region, animated: true)
-        self.delegate?.searchAreaUpdated(center, radius: radius)
+        mapView?.removeAnnotations(observations)
+        self.delegate?.searchAreaUpdated(center, radius: searchRadius)
     }
     
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
         mapView.removeOverlay(searchRadiusCircle)
-        searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: Double(slider.value) * 1600)
+        searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: searchRadius)
         mapView.addOverlay(searchRadiusCircle)
     }
     
