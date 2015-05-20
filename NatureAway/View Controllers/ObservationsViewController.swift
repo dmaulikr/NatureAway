@@ -69,6 +69,17 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
         return 0
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if let observations = observations where observations.count > indexPath.row {
+            let observation = observations[indexPath.row]
+            let detailViewController = ObservationDetailViewController(nibName: "ObservationDetailViewController", bundle: nil)
+            detailViewController.observation = observation
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender is UIButton {
             let indexPath = sender!.tag

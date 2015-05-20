@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--NatureAway-->
+        <!--NatuRentals-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="SearchViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,7 +114,7 @@
                             <constraint firstItem="DJw-ke-6iK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="jME-6M-hAX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NatureAway" id="eqV-yt-9of"/>
+                    <navigationItem key="navigationItem" title="NatuRentals" id="eqV-yt-9of"/>
                     <connections>
                         <outlet property="collectionView" destination="RCu-3q-AFF" id="nLI-Qx-4wO"/>
                         <outlet property="searchBar" destination="DJw-ke-6iK" id="EUi-kd-iDf"/>
@@ -150,14 +150,8 @@
                                                     <rect key="frame" x="8" y="8" width="60" height="60"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Species Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-uU-o8V">
-                                                    <rect key="frame" x="76" y="8" width="248" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-La-X4k">
-                                                    <rect key="frame" x="76" y="28" width="109" height="18"/>
+                                                    <rect key="frame" x="76" y="42" width="109" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -175,6 +169,12 @@
                                                         <segue destination="K6c-uB-JhU" kind="show" identifier="toListings" id="vIq-YR-IH9"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Species Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-uU-o8V">
+                                                    <rect key="frame" x="76" y="18" width="248" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="lwt-sI-Que" secondAttribute="centerY" id="2OU-CD-38n"/>
@@ -246,6 +246,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Something something about some rental somewhere and some other stuff about it" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyd-ZX-oRA">
                                                     <rect key="frame" x="126" y="13" width="401" height="36"/>
+                                                    <color key="tintColor" red="0.44705882349999998" green="0.68235294120000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -488,4 +489,5 @@
         <image name="map-icon-24" width="24" height="24"/>
         <image name="menu-2-icon-24" width="24" height="24"/>
     </resources>
+    <color key="tintColor" red="0.44705882349999998" green="0.68235294120000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

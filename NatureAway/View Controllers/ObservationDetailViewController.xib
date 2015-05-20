@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
@@ -20,16 +20,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red-Tailed Hawk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnL-Ne-fgb">
-                    <rect key="frame" x="13" y="333" width="131" height="21"/>
+                    <rect key="frame" x="13" y="333" width="137" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="7o2-gi-ecB"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buteo jamaicensis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64l-Iq-BA4">
-                    <rect key="frame" x="12" y="356" width="132" height="21"/>
+                    <rect key="frame" x="13" y="356" width="132" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="ZDm-P6-bJJ"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="wwP-on-yNm"/>
@@ -73,11 +73,19 @@
                         <constraint firstAttribute="height" constant="15" id="fuU-eG-P0c"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sq3-rH-0Lb">
+                    <rect key="frame" x="221" y="433" width="159" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="View Rentals Nearby">
+                        <color key="titleColor" red="0.44705882352941179" green="0.68235294117647061" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="n9E-u0-TXv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2Tc-nc-WMe"/>
-                <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="2p7-dP-spv"/>
+                <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="2p7-dP-spv"/>
                 <constraint firstItem="bnL-Ne-fgb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="4IE-fj-sla"/>
                 <constraint firstItem="Gsu-Qb-PBr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4cc-dZ-kq8"/>
                 <constraint firstItem="ipH-yQ-ynR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="6vQ-bV-vPy"/>
@@ -88,6 +96,7 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ipH-yQ-ynR" secondAttribute="trailing" constant="13" id="IR4-g8-KiS"/>
                 <constraint firstAttribute="trailing" secondItem="n9E-u0-TXv" secondAttribute="trailing" id="PeC-5N-nar"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bnL-Ne-fgb" secondAttribute="trailing" constant="8" id="Rme-MJ-iSY"/>
+                <constraint firstAttribute="centerX" secondItem="sq3-rH-0Lb" secondAttribute="centerX" id="TEq-vB-Q5l"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="64l-Iq-BA4" secondAttribute="trailing" constant="8" id="V2f-6k-CAe"/>
                 <constraint firstItem="Gsu-Qb-PBr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ieG-ET-n12"/>
                 <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="bnL-Ne-fgb" secondAttribute="trailing" constant="8" id="iqs-za-rGr"/>
@@ -96,6 +105,7 @@
                 <constraint firstItem="ipH-yQ-ynR" firstAttribute="top" secondItem="64l-Iq-BA4" secondAttribute="bottom" constant="2" id="t2p-X6-0fs"/>
                 <constraint firstItem="n9E-u0-TXv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vCA-ox-Kfy"/>
                 <constraint firstAttribute="trailing" secondItem="64l-Iq-BA4" secondAttribute="trailing" constant="456" id="vul-ta-kf7"/>
+                <constraint firstItem="sq3-rH-0Lb" firstAttribute="top" secondItem="n9E-u0-TXv" secondAttribute="bottom" constant="104" id="wpu-Qe-Xbi"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
