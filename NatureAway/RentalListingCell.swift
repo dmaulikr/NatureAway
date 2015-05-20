@@ -44,5 +44,4 @@ class RentalListingCell: UITableViewCell {
         userInfo["index"] = tag
         NSNotificationCenter.defaultCenter().postNotificationName(listingImageTappedNotification, object: self, userInfo: userInfo)
     }
-    
 }
