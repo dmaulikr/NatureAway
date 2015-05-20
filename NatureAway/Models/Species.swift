@@ -11,14 +11,24 @@ import Foundation
 class Species: NSObject {
     
     var id: Int64?
+    var name: String?
     var commonName: String?
     
     var smallUrlString: String?
     var squareUrlString: String?
     var largeUrlString: String?
     
+    var primaryName:String {
+        var primaryName = String()
+        if let commonName = commonName {
+            primaryName = commonName
+        } else if let name = name {
+            primaryName = name
+        }
+        return primaryName
+    }
+    
     init(dictionary: NSDictionary) {
-        
         if let idNumber = dictionary["id"] as? NSNumber {
             id = idNumber.longLongValue
         }
@@ -26,6 +36,9 @@ class Species: NSObject {
         if let commonNameDictionary = dictionary["common_name"] as? NSDictionary {
             commonName = commonNameDictionary["name"] as? String
         }
+        
+        
+        name = dictionary["name"] as? String
         
         if let taxonPhotos = dictionary["taxon_photos"] as? [NSDictionary] {
             if taxonPhotos.count > 0 {
@@ -36,6 +49,7 @@ class Species: NSObject {
                 }
             }
         }
+
     }
     
     class func speciesWithArray(array: [NSDictionary]) -> [Species] {

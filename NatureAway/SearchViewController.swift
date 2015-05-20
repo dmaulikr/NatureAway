@@ -49,7 +49,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
             if let species = species {
                 if species.count > indexPath.row {
                     let singleSpecies = species[indexPath.row]
-                    gridCell.primaryLabel.text = singleSpecies.commonName
+                    gridCell.primaryLabel.text = singleSpecies.primaryName
                     
                     if let squareUrlString = singleSpecies.squareUrlString, let url = NSURL(string: squareUrlString) {
                         let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
