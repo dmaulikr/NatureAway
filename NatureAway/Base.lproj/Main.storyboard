@@ -225,7 +225,7 @@
         <!--Listings View Controller-->
         <scene sceneID="0HS-0u-Lg0">
             <objects>
-                <viewController id="K6c-uB-JhU" customClass="ListingsViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListingsViewController" id="K6c-uB-JhU" customClass="ListingsViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8xb-NJ-hNa"/>
                         <viewControllerLayoutGuide type="bottom" id="q1t-7A-nFb"/>

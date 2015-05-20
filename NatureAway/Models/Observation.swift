@@ -13,6 +13,23 @@ class Observation: NSObject, MKAnnotation {
     
     var latitudeString: String?
     var longitudeString: String?
+    
+    var latitudeFloat: Float? {
+        var latitudeFloat: Float? = nil
+        if let latitudeString = latitudeString {
+            latitudeFloat = (latitudeString as NSString).floatValue
+        }
+        return latitudeFloat
+    }
+    
+    var longitudeFloat: Float? {
+        var longitudeFloat: Float? = nil
+        if let longitudeString = longitudeString {
+            longitudeFloat = (longitudeString as NSString).floatValue
+        }
+        return longitudeFloat
+    }
+    
     var nameString: String?
     var commonNameString: String?
     var iconicTaxonName: String?

@@ -21,6 +21,7 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+
     var pageImageViews = [UIImageView?]()
     var pageUrlStrings = [String]()
     
@@ -113,6 +114,15 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onViewRentalsTouched(sender: AnyObject) {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let listingsViewController = storyboard.instantiateViewControllerWithIdentifier("ListingsViewController") as? ListingsViewController, observation = observation {
+            listingsViewController.latitude = observation.latitudeFloat
+            listingsViewController.longitude = observation.longitudeFloat
+            navigationController?.pushViewController(listingsViewController, animated: true)
+        }
+    }    
 
     /*
     // MARK: - Navigation

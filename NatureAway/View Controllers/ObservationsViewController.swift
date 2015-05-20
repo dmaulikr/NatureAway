@@ -83,13 +83,11 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender is UIButton {
             let indexPath = sender!.tag
-            
-            let observation = observations![indexPath]
-            
+            let observation = observations![indexPath]            
             let listingsViewController = segue.destinationViewController as! ListingsViewController
-            
-            listingsViewController.latitude = (observation.latitudeString as NSString!).floatValue
-            listingsViewController.longitude = (observation.longitudeString as NSString!).floatValue
+
+            listingsViewController.latitude = observation.latitudeFloat
+            listingsViewController.longitude = observation.longitudeFloat
         } else {
             return
         }
