@@ -35,7 +35,7 @@ class ObservationDetailViewController: UIViewController {
         if let observation = observation {
             if let urlString = observation.firstLargeUrlString, url = NSURL(string: urlString) {
                 let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
-                headerImageView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success: nil, failure: nil)
+                headerImageView.asyncLoadWithUrlRequest(imageRequest)
             }
             
             commonNameLabel.text = observation.commonNameString

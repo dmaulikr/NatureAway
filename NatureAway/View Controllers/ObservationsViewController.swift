@@ -36,7 +36,7 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
                 
                 if let urlString = observation.firstSmallUrlString, url = NSURL(string: urlString) {
                     let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
-                    cell.observationImageView.setImageWithURLRequest(imageRequest, placeholderImage: nil, success: nil, failure: nil)
+                    cell.observationImageView.asyncLoadWithUrlRequest(imageRequest)
                 }
 
                 if let latitudeString = observation.latitudeString {
