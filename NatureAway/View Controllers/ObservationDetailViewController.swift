@@ -16,7 +16,6 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var speciesNameLabel: UILabel!
     
     @IBOutlet weak var observedOnLabel: UILabel!
-    @IBOutlet weak var headerImageView: UIImageView!
     
     @IBOutlet weak var pageControl: UIPageControl!
     
