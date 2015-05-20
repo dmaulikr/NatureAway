@@ -19,7 +19,11 @@ class RentalListingCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        headingLabel.preferredMaxLayoutWidth = headingLabel.frame.size.width
+        let tapGesture = UITapGestureRecognizer(target: self, action: "onImageTapped")
+        rentalImage.addGestureRecognizer(tapGesture)
+        rentalImage.userInteractionEnabled = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -27,5 +31,12 @@ class RentalListingCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        headingLabel.preferredMaxLayoutWidth = headingLabel.frame.size.width
+    }
+    
 }

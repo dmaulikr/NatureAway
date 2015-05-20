@@ -50,8 +50,6 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
             }
 
             cell.tag = indexPath.row
-
-            cell.listingButton.addTarget(self, action: "listingButtonClicked", forControlEvents: UIControlEvents.TouchUpInside)
             cell.listingButton.tag = indexPath.row
             
             return cell
@@ -64,10 +62,6 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
             return observations.count
         }
         return 0
-    }
-    
-    func listingButtonClicked() {
-        self.performSegueWithIdentifier("toListings", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

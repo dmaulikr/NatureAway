@@ -8,6 +8,8 @@
 
 import UIKit
 
+let listingImageTappedNotification = "listingImageTappedNotification"
+
 class ListingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -15,17 +17,22 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var latitude: Float!
     var longitude: Float!
     
-    var listings: [RentalListing]?
+    var listings: [RentalListing]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
 
         ZilyoClient.sharedInstance.getListings(true, latitude: 52.5306438, longitude: 13.3830683) { (listings: [RentalListing]?, error: NSError?) -> Void in
             if let listings = listings {
-                println(listings)
                 self.listings = listings
             } else {
                 if let error = error {
@@ -34,17 +41,21 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
         
-        tableView.reloadData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onListingImageTapped:", name: listingImageTappedNotification, object: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        println(listings)
         if let cell = tableView.dequeueReusableCellWithIdentifier("RentalListingCell", forIndexPath: indexPath) as? RentalListingCell {
             if let listings = listings {
                 var listing = listings[indexPath.row]
                 cell.headingLabel.text = listing.heading
-                cell.numBedroomsLabel.text = String(listing.numBedrooms)
-                cell.numBathroomsLabel.text = String(listing.numBathrooms)
-                cell.priceLabel.text = String(listing.nightlyPrice)
+                cell.numBedroomsLabel.text = "\(String(listing.numBedrooms)) Bedroom(s)"
+                cell.numBathroomsLabel.text = "\(String(listing.numBathrooms)) Bathroom(s)"
+                cell.priceLabel.text = "$\(String(listing.nightlyPrice)) Per Night"
+                if let smallUrls = listing.smallUrlStrings {
+                    cell.rentalImage.setImageWithURL(NSURL(string: smallUrls[0]))
+                }
             }
             return cell
         }
@@ -56,6 +67,16 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
             return listings.count
         } else {
             return 0
+        }
+    }
+    
+    func onListingImageTapped(notification: NSNotification) {
+        if let userInfo = notification.userInfo, index = userInfo["index"] as? Int,
+            listings = listings where listings.count > index {
+                let listing = listings[index]
+                let viewController = ListingsDetailViewController(nibName: "ListingsDetailViewController", bundle: nil)
+                viewController.listing = listing
+                navigationController?.pushViewController(viewController, animated: true)
         }
     }
     

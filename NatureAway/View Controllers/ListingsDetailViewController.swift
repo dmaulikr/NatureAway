@@ -10,6 +10,8 @@ import UIKit
 
 class ListingsDetailViewController: UIViewController {
 
+    var listing: RentalListing?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
