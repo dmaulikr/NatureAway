@@ -63,9 +63,11 @@ class ObservationAnnotationView: MKAnnotationView {
 
         if let urlString = observation.firstSmallUrlString {
             var imageView = UIImageView(frame: CGRectMake(15, 0, 40, 40))
-            imageView.setImageWithURL(NSURL(string: urlString))
-            imageView.contentMode = .ScaleAspectFit
-            leftCalloutAccessoryView = imageView            
+            if let url = NSURL(string: urlString) {
+                imageView.asyncLoadWithUrl(url)
+                imageView.contentMode = .ScaleAspectFit
+                leftCalloutAccessoryView = imageView
+            }
         }
         
         let infoButton = UIButton.buttonWithType(UIButtonType.InfoDark) as! UIButton

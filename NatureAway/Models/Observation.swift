@@ -18,6 +18,7 @@ class Observation: NSObject, MKAnnotation {
     var iconicTaxonName: String?
     var largeUrlStrings: [String]?
     var smallUrlStrings: [String]?
+    var observedOnString: String?
     
     var firstLargeUrlString: String? {
         var urlString: String? = nil
@@ -89,6 +90,8 @@ class Observation: NSObject, MKAnnotation {
                 }
             }
         }
+        
+        observedOnString = dictionary["observed_on_string"] as? String
 
         super.init()
     }

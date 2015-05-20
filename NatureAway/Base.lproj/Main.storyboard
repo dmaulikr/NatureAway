@@ -48,8 +48,8 @@
                                                         <constraint firstAttribute="width" constant="100" id="gcz-OY-j23"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opalescent Nudibranch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGf-Zf-HRx">
-                                                    <rect key="frame" x="10" y="114" width="100" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nudibranch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGf-Zf-HRx">
+                                                    <rect key="frame" x="10" y="112" width="100" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="36z-lH-z0z"/>
                                                     </constraints>
@@ -74,11 +74,13 @@
                                             <constraint firstItem="qnX-e9-Sqa" firstAttribute="leading" secondItem="cmH-Rt-OtI" secondAttribute="leading" constant="10" id="ZQa-hc-5Cw"/>
                                             <constraint firstItem="BGf-Zf-HRx" firstAttribute="leading" secondItem="cmH-Rt-OtI" secondAttribute="leading" constant="10" id="b2E-DO-32L"/>
                                             <constraint firstAttribute="bottom" secondItem="BGf-Zf-HRx" secondAttribute="bottom" constant="6" id="dtL-ym-104"/>
+                                            <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="4" id="dtw-5k-fcD"/>
                                             <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="3" id="fvP-pi-oee"/>
                                             <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="3" id="lgC-QY-Af7"/>
                                             <constraint firstItem="qnX-e9-Sqa" firstAttribute="leading" secondItem="cmH-Rt-OtI" secondAttribute="leading" constant="10" id="nZK-Gg-Yf6"/>
                                             <constraint firstAttribute="trailing" secondItem="BGf-Zf-HRx" secondAttribute="trailing" constant="10" id="uTx-x5-0gm"/>
                                             <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="3" id="wwv-qy-80F"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BGf-Zf-HRx" secondAttribute="bottom" constant="4" id="zgh-4A-3ox"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -86,6 +88,7 @@
                                                 <exclude reference="G1q-Hh-eK3"/>
                                                 <exclude reference="ZQa-hc-5Cw"/>
                                                 <exclude reference="NNR-MM-cf6"/>
+                                                <exclude reference="dtL-ym-104"/>
                                                 <exclude reference="fvP-pi-oee"/>
                                                 <exclude reference="lgC-QY-Af7"/>
                                                 <exclude reference="wwv-qy-80F"/>
