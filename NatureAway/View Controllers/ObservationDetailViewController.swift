@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObservationDetailViewController: UIViewController {
+class ObservationDetailViewController: UIViewController, UIScrollViewDelegate {
     
     var observation: Observation?
 
@@ -18,6 +18,13 @@ class ObservationDetailViewController: UIViewController {
     @IBOutlet weak var observedOnLabel: UILabel!
     @IBOutlet weak var headerImageView: UIImageView!
     
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var pageImageViews = [UIImageView?]()
+    var pageUrlStrings = [String]()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -25,18 +32,13 @@ class ObservationDetailViewController: UIViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
 
-        // Do any additional setup after loading the view.
-        headerImageView.clipsToBounds = true
-        
         if let observation = observation {
-            if let urlString = observation.firstLargeUrlString, url = NSURL(string: urlString) {
-                let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
-                headerImageView.asyncLoadWithUrlRequest(imageRequest)
-            }
+            initPageControl()
             
             commonNameLabel.text = observation.commonNameString
             speciesNameLabel.text = observation.nameString
@@ -45,6 +47,66 @@ class ObservationDetailViewController: UIViewController {
                 observedOnLabel.text = "Observed on: " + observedOnString
             }
         }
+    }
+    
+    func initPageControl() {
+        if let observation = observation, largeUrlStrings = observation.largeUrlStrings where largeUrlStrings.count > 0 {
+            
+            pageUrlStrings = largeUrlStrings
+            
+            let pageCount = largeUrlStrings.count
+            pageControl.currentPage = 0
+            pageControl.numberOfPages = pageCount
+            
+            for _ in 0...pageCount-1 {
+                let imageView = UIImageView()
+                pageImageViews.append(imageView)
+                scrollView.addSubview(imageView)
+            }
+            loadImages()
+        }
+    }
+    
+    func updatePageControl() {
+        // Determine which page is currently visible
+        let pageWidth = scrollView.frame.size.width
+        let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
+        
+        // Update the page control
+        pageControl.currentPage = page
+    }
+    
+    func loadImages() {
+        for (index, imageView) in enumerate(pageImageViews) {
+            if let imageView = imageView {
+                imageView.contentMode = .ScaleAspectFit
+                imageView.clipsToBounds = true
+                
+                let url = NSURL(string: pageUrlStrings[index])!
+                imageView.asyncLoadWithUrl(url)
+            }
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        // Have to do this here so we know the true size of the scroll view
+        for (index, imageView) in enumerate(pageImageViews) {
+            if let imageView = imageView {
+                var frame = scrollView.frame
+                frame.origin.x = frame.size.width * CGFloat(index)
+                frame.origin.y = 0.0
+                imageView.frame = frame
+            }
+        }
+        
+        let pageCount = pageImageViews.count
+        let pagesScrollViewSize = scrollView.frame.size
+        scrollView.contentSize = CGSize(width: pagesScrollViewSize.width * CGFloat(pageCount), height: pagesScrollViewSize.height)
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        updatePageControl()
     }
 
     override func didReceiveMemoryWarning() {
