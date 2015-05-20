@@ -7,12 +7,19 @@
 //
 
 import Foundation
+import MapKit
 
 let observationImageTappedNotification = "observationImageTappedNotification"
 
 class ObservationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ObservationTab {
 
     var observations: [Observation]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
+    var currentLocation: CLLocationCoordinate2D? {
         didSet {
             self.tableView.reloadData()
         }
@@ -38,14 +45,12 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
                     let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
                     cell.observationImageView.asyncLoadWithUrlRequest(imageRequest)
                 }
-
-                if let latitudeString = observation.latitudeString {
-                    cell.latitudeLabel.text = latitudeString
-                }
                 
-                
-                if let longitudeString = observation.longitudeString {
-                    cell.longitudeLabel.text = longitudeString
+                if let currentLocation = self.currentLocation {
+                    var location = CLLocation(latitude: observation.coordinate.latitude, longitude: observation.coordinate.longitude)
+                    var distance = location.distanceFromLocation(CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude))
+                    distance = floor(distance/1600)
+                    cell.distanceLabel.text = "\(distance) mi"
                 }
             }
 

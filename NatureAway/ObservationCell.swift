@@ -12,9 +12,8 @@ class ObservationCell: UITableViewCell {
 
     @IBOutlet weak var observationImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var latitudeLabel: UILabel!
-    @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var listingButton: UIButton!
+    @IBOutlet weak var distanceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
