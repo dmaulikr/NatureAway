@@ -31,7 +31,7 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
 
-        ZilyoClient.sharedInstance.getListings(true, latitude: 52.5306438, longitude: 13.3830683) { (listings: [RentalListing]?, error: NSError?) -> Void in
+        ZilyoClient.sharedInstance.getListings(false, latitude: latitude, longitude: longitude) { (listings: [RentalListing]?, error: NSError?) -> Void in
             if let listings = listings {
                 self.listings = listings
             } else {

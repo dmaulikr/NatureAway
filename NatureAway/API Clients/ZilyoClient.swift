@@ -21,6 +21,7 @@ class ZilyoClient: AFHTTPRequestOperationManager {
         params["latitude"] = latitude
         params["longitude"] = longitude
         params["provider"] = "airbnb"
+        params["maxdistance"] = 200.0
         
         
         self.requestSerializer.setValue(mashapeKey, forHTTPHeaderField: "X-Mashape-Key")
