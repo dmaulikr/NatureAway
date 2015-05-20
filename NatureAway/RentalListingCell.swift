@@ -39,4 +39,10 @@ class RentalListingCell: UITableViewCell {
         headingLabel.preferredMaxLayoutWidth = headingLabel.frame.size.width
     }
     
+    func onImageTapped() {
+        var userInfo = [NSObject: AnyObject]()
+        userInfo["index"] = tag
+        NSNotificationCenter.defaultCenter().postNotificationName(listingImageTappedNotification, object: self, userInfo: userInfo)
+    }
+    
 }

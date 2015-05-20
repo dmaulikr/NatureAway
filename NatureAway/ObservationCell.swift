@@ -30,5 +30,11 @@ class ObservationCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func onImageTapped() {
+        var userInfo = [NSObject: AnyObject]()
+        userInfo["index"] = tag
+        NSNotificationCenter.defaultCenter().postNotificationName(observationImageTappedNotification, object: self, userInfo: userInfo)
+    }
 
 }

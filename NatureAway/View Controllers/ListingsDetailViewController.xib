@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListingsDetailViewController" customModule="NatureAway" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionLabel" destination="Or5-SW-iD5" id="i0h-f7-1z8"/>
+                <outlet property="listingHeadingLabel" destination="9g4-Tj-TnH" id="kCp-Hr-rTM"/>
+                <outlet property="pageControl" destination="yh3-Zt-hdM" id="Hql-zD-wWz"/>
+                <outlet property="scrollView" destination="Pha-WP-W9a" id="JnC-Rx-Wtz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,16 +18,37 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Zj-Ib-Q7O">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6dO-wf-ABW">
+                    <rect key="frame" x="0.0" y="315" width="600" height="15"/>
+                    <subviews>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="yh3-Zt-hdM">
+                            <rect key="frame" x="281" y="-11" width="39" height="37"/>
+                        </pageControl>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="yh3-Zt-hdM" secondAttribute="centerY" id="JSd-nt-6E1"/>
+                        <constraint firstAttribute="height" constant="15" id="Lgl-VI-km9"/>
+                        <constraint firstAttribute="centerY" secondItem="yh3-Zt-hdM" secondAttribute="centerY" id="MfK-cx-oyr"/>
+                        <constraint firstAttribute="centerX" secondItem="yh3-Zt-hdM" secondAttribute="centerX" id="S3F-1x-7fh"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="dye-wI-Up6"/>
+                        <constraint firstAttribute="centerX" secondItem="yh3-Zt-hdM" secondAttribute="centerX" id="nmT-N6-HPx"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="dye-wI-Up6"/>
+                        </mask>
+                    </variation>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pha-WP-W9a">
                     <rect key="frame" x="0.0" y="64" width="600" height="250"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="600" id="YbN-XH-QgS"/>
-                        <constraint firstAttribute="height" constant="250" id="nvP-lV-7YD"/>
+                        <constraint firstAttribute="height" constant="250" id="yK1-l0-Bes"/>
                     </constraints>
-                </imageView>
+                </scrollView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing Heading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g4-Tj-TnH">
-                    <rect key="frame" x="13" y="322" width="120" height="21"/>
+                    <rect key="frame" x="13" y="338" width="120" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="1C9-Yu-KUv"/>
                     </constraints>
@@ -32,24 +57,36 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing description here." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Or5-SW-iD5">
-                    <rect key="frame" x="13" y="356" width="184" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="13" y="372" width="165" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="9g4-Tj-TnH" firstAttribute="top" secondItem="6dO-wf-ABW" secondAttribute="bottom" constant="8" id="35w-47-a5g"/>
                 <constraint firstItem="Or5-SW-iD5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="5cB-oJ-SSg"/>
-                <constraint firstAttribute="trailing" secondItem="4Zj-Ib-Q7O" secondAttribute="trailing" id="Lj2-K1-DZP"/>
+                <constraint firstAttribute="trailing" secondItem="Pha-WP-W9a" secondAttribute="trailing" id="7AP-Uu-k8e"/>
+                <constraint firstAttribute="centerX" secondItem="6dO-wf-ABW" secondAttribute="centerX" id="D5V-3R-zP0"/>
+                <constraint firstItem="Pha-WP-W9a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="HIR-VM-o9W"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9g4-Tj-TnH" secondAttribute="trailing" constant="8" id="LmP-eT-4Zd"/>
-                <constraint firstItem="4Zj-Ib-Q7O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="N9j-pT-Xt0"/>
                 <constraint firstItem="9g4-Tj-TnH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="OgV-nu-Jcl"/>
-                <constraint firstItem="9g4-Tj-TnH" firstAttribute="top" secondItem="4Zj-Ib-Q7O" secondAttribute="bottom" constant="8" id="TvF-di-7K9"/>
-                <constraint firstItem="4Zj-Ib-Q7O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="fHl-iZ-IOe"/>
+                <constraint firstItem="Pha-WP-W9a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PcX-Q6-jLq"/>
+                <constraint firstItem="6dO-wf-ABW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ua0-zx-Mc3"/>
+                <constraint firstItem="6dO-wf-ABW" firstAttribute="top" secondItem="Pha-WP-W9a" secondAttribute="bottom" id="W0h-P6-OnX"/>
+                <constraint firstAttribute="centerY" secondItem="6dO-wf-ABW" secondAttribute="centerY" constant="-22.5" id="ffP-7D-Xbg"/>
                 <constraint firstItem="Or5-SW-iD5" firstAttribute="top" secondItem="9g4-Tj-TnH" secondAttribute="bottom" constant="13" id="lrs-UP-gLz"/>
+                <constraint firstAttribute="trailing" secondItem="6dO-wf-ABW" secondAttribute="trailing" id="nes-ST-wfD"/>
+                <constraint firstItem="9g4-Tj-TnH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="322" id="ool-NO-l6D"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Or5-SW-iD5" secondAttribute="trailing" constant="8" id="y0R-JF-MhP"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="W0h-P6-OnX"/>
+                    <exclude reference="ool-NO-l6D"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="296" y="383"/>
         </view>
     </objects>
