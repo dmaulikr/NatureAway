@@ -15,6 +15,7 @@ class ObservationDetailViewController: UIViewController {
     @IBOutlet weak var commonNameLabel: UILabel!
     @IBOutlet weak var speciesNameLabel: UILabel!
     
+    @IBOutlet weak var observedOnLabel: UILabel!
     @IBOutlet weak var headerImageView: UIImageView!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -38,7 +39,11 @@ class ObservationDetailViewController: UIViewController {
             }
             
             commonNameLabel.text = observation.commonNameString
-            speciesNameLabel.text = observation.nameString            
+            speciesNameLabel.text = observation.nameString
+            
+            if let observedOnString = observation.observedOnString {
+                observedOnLabel.text = "Observed on: " + observedOnString
+            }
         }
     }
 
