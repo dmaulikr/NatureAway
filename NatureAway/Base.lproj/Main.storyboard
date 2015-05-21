@@ -22,6 +22,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="iEb-gh-Dsv"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.44705882349999998" green="0.68235294120000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RCu-3q-AFF" customClass="Co">
