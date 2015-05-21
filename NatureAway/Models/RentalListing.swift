@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class RentalListing: NSObject {
     
@@ -21,6 +22,7 @@ class RentalListing: NSObject {
     var largeUrlStrings: [String]?
     var nightlyPrice: Int
     var listingUrl: String
+    var coordinate: CLLocationCoordinate2D?
     
     init(dictionary: NSDictionary) {
         
@@ -33,6 +35,9 @@ class RentalListing: NSObject {
         postalCode = dictionary.valueForKeyPath("location.postalCode") as! String
         nightlyPrice = dictionary.valueForKeyPath("price.nightly") as! Int
         listingUrl = dictionary.valueForKeyPath("provider.url") as! String
+        
+        let latLng = dictionary.valueForKeyPath("latLng") as? NSArray
+        coordinate = CLLocationCoordinate2D(latitude: (latLng?[0] as! Double), longitude: (latLng?[1] as! Double))
         
         if let photosArray = dictionary["photos"] as? [NSDictionary] {
             smallUrlStrings = [String]()

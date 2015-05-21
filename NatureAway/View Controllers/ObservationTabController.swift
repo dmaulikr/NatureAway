@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 protocol ObservationTab : class {
-    var observations: [Observation]? { get set }
+    func addObservations(observations: [Observation])
     var currentLocation: CLLocationCoordinate2D? { get set }
 }
 
@@ -22,6 +22,8 @@ class ObservationTabController: UITabBarController, MapViewControllerDelegate, C
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UITabBar.appearance().tintColor = UIColor.nature_Green;
         
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
@@ -67,7 +69,7 @@ class ObservationTabController: UITabBarController, MapViewControllerDelegate, C
                     if let controllers = self.viewControllers {
                         for controller in controllers {
                             if let controller = controller as? ObservationTab {
-                                controller.observations = observations
+                                controller.addObservations(observations)
                             }
                         }
                     }
@@ -84,7 +86,7 @@ class ObservationTabController: UITabBarController, MapViewControllerDelegate, C
                     if let controllers = self.viewControllers {
                         for controller in controllers {
                             if let controller = controller as? ObservationTab {
-                                controller.observations = observations
+                                controller.addObservations(observations)
                             }
                         }
                     }

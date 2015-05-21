@@ -137,8 +137,7 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let listingsViewController = storyboard.instantiateViewControllerWithIdentifier("ListingsViewController") as? ListingsViewController, observation = observation {
-            listingsViewController.latitude = observation.latitudeFloat
-            listingsViewController.longitude = observation.longitudeFloat
+            listingsViewController.coordinate = observation.coordinate
             navigationController?.pushViewController(listingsViewController, animated: true)
         }
     }
@@ -167,9 +166,9 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
     
     func loadRentals() {
         
-        if let observation = observation, latitude = observation.latitudeFloat, longitude = observation.longitudeFloat {
+        if let observation = observation {
 
-            ZilyoClient.sharedInstance.getListings(false, latitude: latitude, longitude: longitude, count: 2) { (listings: [RentalListing]?, error: NSError?) -> Void in
+            ZilyoClient.sharedInstance.getListings(false, latitude: observation.coordinate.latitude, longitude:  observation.coordinate.longitude, count: 2) { (listings: [RentalListing]?, error: NSError?) -> Void in
                 if let listings = listings {
                     self.listings = listings
                     self.rentalTableView.hidden = false

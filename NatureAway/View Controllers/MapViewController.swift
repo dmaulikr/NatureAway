@@ -32,7 +32,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     
     weak var delegate: MapViewControllerDelegate?
     
-    var observations: [Observation]? {
+    private var observations: [Observation]? {
         willSet {
             mapView?.removeAnnotations(observations)
         }
@@ -47,9 +47,10 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
         mapView.delegate = self
         mapView.showsUserLocation = true
         if let currentLocation = self.currentLocation {
-            mapView.setCenterCoordinate(currentLocation, animated: true)
             searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: searchRadius)
             mapView.addOverlay(searchRadiusCircle);
+            let region = MKCoordinateRegionMakeWithDistance(currentLocation, searchRadius, 3 * searchRadius)
+            self.mapView.setRegion(region, animated: true)
         }
         searchBar.delegate = self
         geocoder = CLGeocoder()
@@ -154,6 +155,10 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
         var viewController = ObservationDetailViewController(nibName: "ObservationDetailViewController", bundle: nil)
         viewController.observation = observation
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func addObservations(observations: [Observation]) {
+        self.observations = observations
     }
 
     /*

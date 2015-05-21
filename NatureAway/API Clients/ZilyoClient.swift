@@ -14,7 +14,7 @@ class ZilyoClient: AFHTTPRequestOperationManager {
     
     static let sharedInstance = ZilyoClient(baseURL: NSURL(string: zilyoBaseURL))
 
-    func getListings(isinstantbook: Bool, latitude: Float, longitude: Float, count: Int = 20, completion: ([RentalListing]?, NSError?) -> Void) {
+    func getListings(isinstantbook: Bool, latitude: Double, longitude: Double, count: Int = 20, completion: ([RentalListing]?, NSError?) -> Void) {
         
         var params = NSMutableDictionary()
         params["isinstantbook"] = isinstantbook

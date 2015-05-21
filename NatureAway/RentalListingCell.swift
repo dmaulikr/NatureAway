@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class RentalListingCell: UITableViewCell {
 
@@ -16,6 +17,8 @@ class RentalListingCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var rentalImage: UIImageView!
     
+    var observationCoordinate: CLLocationCoordinate2D?
+    
     var listing: RentalListing? {
         didSet {
             if let listing = listing {
@@ -24,6 +27,11 @@ class RentalListingCell: UITableViewCell {
                 priceLabel.text = "$\(String(listing.nightlyPrice)) Per Night"
                 if let smallUrls = listing.smallUrlStrings {
                     rentalImage.setImageWithURL(NSURL(string: smallUrls[0]))
+                }
+                if let  observationCoordinate = observationCoordinate {
+                    var location = CLLocation(latitude: listing.coordinate!.latitude, longitude: listing.coordinate!.longitude)
+                    var distance = location.distanceFromLocation(CLLocation(latitude: observationCoordinate.latitude, longitude: observationCoordinate.longitude))
+                    distanceLabel.text = NSString(format: "%.1f mi", distance/1600) as String
                 }
             }
         }

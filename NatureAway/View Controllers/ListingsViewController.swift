@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 let listingImageTappedNotification = "listingImageTappedNotification"
 
@@ -14,11 +15,11 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    var latitude: Float!
-    var longitude: Float!
+    var coordinate: CLLocationCoordinate2D?
     
     var listings: [RentalListing]? {
         didSet {
+            sortListings();
             self.tableView.reloadData()
         }
     }
@@ -30,13 +31,15 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-
-        ZilyoClient.sharedInstance.getListings(false, latitude: latitude, longitude: longitude) { (listings: [RentalListing]?, error: NSError?) -> Void in
-            if let listings = listings {
-                self.listings = listings
-            } else {
-                if let error = error {
-                    println(error)
+        
+        if let latitude = coordinate?.latitude, longitude = coordinate?.longitude {
+            ZilyoClient.sharedInstance.getListings(false, latitude: latitude, longitude: longitude) { (listings: [RentalListing]?, error: NSError?) -> Void in
+                if let listings = listings {
+                    self.listings = listings
+                } else {
+                    if let error = error {
+                        println(error)
+                    }
                 }
             }
         }
@@ -48,6 +51,7 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
         println(listings)
         if let cell = tableView.dequeueReusableCellWithIdentifier("RentalListingCell", forIndexPath: indexPath) as? RentalListingCell {
             if let listings = listings {
+                cell.observationCoordinate = coordinate
                 cell.listing = listings[indexPath.row]
             }
             return cell
@@ -86,6 +90,20 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func sortListings() -> [RentalListing]? {
+        /*if let coordinate = coordinate, listings = listings {
+            
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            var sortedListings = listings.sorted({ (a: RentalListing, b: RentalListing) -> Bool in
+                let distanceA = location.distanceFromLocation(CLLocation(latitude: a.coordinate.latitude, longitude: a.coordinate.longitude))
+                let distanceB = location.distanceFromLocation(CLLocation(latitude: b.coordinate.latitude, longitude: b.coordinate.longitude))
+                return distanceA > distanceB
+            })
+            return sortedListings
+        }*/
+        return listings
     }
     
     

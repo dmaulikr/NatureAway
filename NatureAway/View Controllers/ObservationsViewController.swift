@@ -13,7 +13,8 @@ let observationImageTappedNotification = "observationImageTappedNotification"
 
 class ObservationsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ObservationTab {
 
-    var observations: [Observation]? {
+    
+    private var observations: [Observation]? {
         didSet {
             self.tableView.reloadData()
         }
@@ -49,8 +50,7 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
                 if let currentLocation = self.currentLocation {
                     var location = CLLocation(latitude: observation.coordinate.latitude, longitude: observation.coordinate.longitude)
                     var distance = location.distanceFromLocation(CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude))
-                    distance = floor(distance/1600)
-                    cell.distanceLabel.text = "\(distance) mi"
+                    cell.distanceLabel.text = NSString(format: "%.1f mi", distance/1600) as String
                 }
             }
 
@@ -84,8 +84,7 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
             let observation = observations![indexPath]            
             let listingsViewController = segue.destinationViewController as! ListingsViewController
 
-            listingsViewController.latitude = observation.latitudeFloat
-            listingsViewController.longitude = observation.longitudeFloat
+            listingsViewController.coordinate = observation.coordinate
         } else {
             return
         }
@@ -99,6 +98,24 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
             viewController.observation = observation
             navigationController?.pushViewController(viewController, animated: true)
         }
+    }
+    
+    func addObservations(observations: [Observation]) {
+        self.observations = sortObservations(observations)
+    }
+    
+    private func sortObservations(observations: [Observation]) -> [Observation] {
+        if let currentLocation = currentLocation {
+        
+        let location = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
+        var sortedObservations = observations.sorted({ (a: Observation, b: Observation) -> Bool in
+        let distanceA = location.distanceFromLocation(CLLocation(latitude: a.coordinate.latitude, longitude: a.coordinate.longitude))
+        let distanceB = location.distanceFromLocation(CLLocation(latitude: b.coordinate.latitude, longitude: b.coordinate.longitude))
+        return distanceA < distanceB
+        })
+        return sortedObservations
+        }
+        return observations
     }
     
 }
