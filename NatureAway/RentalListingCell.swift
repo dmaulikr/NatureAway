@@ -23,7 +23,7 @@ class RentalListingCell: UITableViewCell {
         didSet {
             if let listing = listing {
                 headingLabel.text = listing.heading
-                numBedroomsLabel.text = "\(String(listing.numBedrooms)) Bed \\ \(String(listing.numBathrooms)) Bath"
+                numBedroomsLabel.text = "\(String(listing.numBedrooms)) Beds, \(String(listing.numBathrooms)) Baths"
                 priceLabel.text = "$\(String(listing.nightlyPrice)) Per Night"
                 if let smallUrls = listing.smallUrlStrings {
                     rentalImage.setImageWithURL(NSURL(string: smallUrls[0]))

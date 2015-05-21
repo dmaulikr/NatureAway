@@ -12,6 +12,8 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var listingHeadingLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var roomsLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -36,12 +38,15 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         textScrollView.delegate = self
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         if let listing = listing {
             initPageControl()
             
             listingHeadingLabel.text = listing.heading
             descriptionLabel.text = listing.listingDescription
-
+            roomsLabel.text = "\(String(listing.numBedrooms)) Beds, \(String(listing.numBathrooms)) Baths"
+            priceLabel.text = "$\(String(listing.nightlyPrice)) Per Night"
         }
         
         textScrollView.contentSize.width = textScrollView.superview!.frame.size.width
