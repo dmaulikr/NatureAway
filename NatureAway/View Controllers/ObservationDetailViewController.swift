@@ -78,6 +78,7 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
             
             for _ in 0...pageCount-1 {
                 let imageView = UIImageView()
+                imageView.backgroundColor = UIColor.nature_OffWhite
                 pageImageViews.append(imageView)
                 scrollView.addSubview(imageView)
             }
