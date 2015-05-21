@@ -17,6 +17,20 @@ class RentalListingCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var rentalImage: UIImageView!
     
+    var listing: RentalListing? {
+        didSet {
+            if let listing = listing {
+                headingLabel.text = listing.heading
+                numBedroomsLabel.text = "\(String(listing.numBedrooms)) Bedroom(s)"
+                numBathroomsLabel.text = "\(String(listing.numBathrooms)) Bathroom(s)"
+                priceLabel.text = "$\(String(listing.nightlyPrice)) Per Night"
+                if let smallUrls = listing.smallUrlStrings {
+                    rentalImage.setImageWithURL(NSURL(string: smallUrls[0]))
+                }
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

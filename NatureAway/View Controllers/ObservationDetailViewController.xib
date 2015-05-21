@@ -6,9 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ObservationDetailViewController" customModule="NatureAway" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="SfJ-fp-P6A" id="fEY-Fl-8rX"/>
                 <outlet property="commonNameLabel" destination="bnL-Ne-fgb" id="ClY-Sz-H8b"/>
                 <outlet property="observedOnLabel" destination="ipH-yQ-ynR" id="09h-3G-5sC"/>
                 <outlet property="pageControl" destination="xWQ-lB-gBh" id="R92-zu-zsR"/>
+                <outlet property="rentalTableView" destination="Mps-uN-KVn" id="fW9-jA-ban"/>
                 <outlet property="scrollView" destination="Gsu-Qb-PBr" id="aE4-rJ-Kf2"/>
                 <outlet property="speciesNameLabel" destination="64l-Iq-BA4" id="bmb-C1-BOk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -74,9 +76,9 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sq3-rH-0Lb">
-                    <rect key="frame" x="221" y="433" width="159" height="33"/>
+                    <rect key="frame" x="199" y="606" width="203" height="33"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="View Rentals Nearby">
+                    <state key="normal" title="View More Rentals Nearby">
                         <color key="titleColor" red="0.44705882352941179" green="0.68235294117647061" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -84,6 +86,36 @@
                         <action selector="onViewRentalsTouched:" destination="-1" eventType="touchUpInside" id="3Vz-BS-kac"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearby Rentals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbO-j4-ec3">
+                    <rect key="frame" x="236" y="415" width="128" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="H0D-j2-KF3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wiB-BX-aKG">
+                    <rect key="frame" x="0.0" y="441" width="600" height="160"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mps-uN-KVn">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="160"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SfJ-fp-P6A">
+                            <rect key="frame" x="290" y="70" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="SfJ-fp-P6A" secondAttribute="centerX" id="ITu-fn-vf5"/>
+                        <constraint firstItem="Mps-uN-KVn" firstAttribute="leading" secondItem="wiB-BX-aKG" secondAttribute="leading" id="axl-eX-0qP"/>
+                        <constraint firstAttribute="trailing" secondItem="Mps-uN-KVn" secondAttribute="trailing" id="ekx-Oi-wcu"/>
+                        <constraint firstAttribute="bottom" secondItem="Mps-uN-KVn" secondAttribute="bottom" id="gui-Ik-iyd"/>
+                        <constraint firstItem="Mps-uN-KVn" firstAttribute="top" secondItem="wiB-BX-aKG" secondAttribute="top" id="i6E-4p-wyb"/>
+                        <constraint firstAttribute="height" constant="160" id="kkO-By-NaO"/>
+                        <constraint firstAttribute="centerY" secondItem="SfJ-fp-P6A" secondAttribute="centerY" id="rlY-e6-iAd"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -91,8 +123,10 @@
                 <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="2p7-dP-spv"/>
                 <constraint firstItem="bnL-Ne-fgb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="4IE-fj-sla"/>
                 <constraint firstItem="Gsu-Qb-PBr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4cc-dZ-kq8"/>
+                <constraint firstItem="wiB-BX-aKG" firstAttribute="top" secondItem="wbO-j4-ec3" secondAttribute="bottom" constant="5" id="5MJ-cg-h2b"/>
                 <constraint firstItem="ipH-yQ-ynR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="6vQ-bV-vPy"/>
                 <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="bnL-Ne-fgb" secondAttribute="trailing" constant="8" id="7WJ-Mw-csz"/>
+                <constraint firstAttribute="centerX" secondItem="wbO-j4-ec3" secondAttribute="centerX" id="7xv-PN-9UV"/>
                 <constraint firstItem="n9E-u0-TXv" firstAttribute="top" secondItem="Gsu-Qb-PBr" secondAttribute="bottom" id="ACx-I7-ROB"/>
                 <constraint firstItem="bnL-Ne-fgb" firstAttribute="top" secondItem="n9E-u0-TXv" secondAttribute="bottom" constant="4" id="D0a-4F-vNJ"/>
                 <constraint firstItem="bnL-Ne-fgb" firstAttribute="top" secondItem="n9E-u0-TXv" secondAttribute="bottom" constant="4" id="Hd9-Hm-mwy"/>
@@ -100,15 +134,19 @@
                 <constraint firstAttribute="trailing" secondItem="n9E-u0-TXv" secondAttribute="trailing" id="PeC-5N-nar"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bnL-Ne-fgb" secondAttribute="trailing" constant="8" id="Rme-MJ-iSY"/>
                 <constraint firstAttribute="centerX" secondItem="sq3-rH-0Lb" secondAttribute="centerX" id="TEq-vB-Q5l"/>
+                <constraint firstAttribute="trailing" secondItem="wiB-BX-aKG" secondAttribute="trailing" id="UH6-TQ-hdG"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="64l-Iq-BA4" secondAttribute="trailing" constant="8" id="V2f-6k-CAe"/>
+                <constraint firstItem="wiB-BX-aKG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="chV-ZD-Mue"/>
+                <constraint firstItem="wbO-j4-ec3" firstAttribute="top" secondItem="n9E-u0-TXv" secondAttribute="bottom" constant="86" id="hay-K8-Uom"/>
                 <constraint firstItem="Gsu-Qb-PBr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ieG-ET-n12"/>
                 <constraint firstItem="64l-Iq-BA4" firstAttribute="leading" secondItem="bnL-Ne-fgb" secondAttribute="trailing" constant="8" id="iqs-za-rGr"/>
+                <constraint firstItem="sq3-rH-0Lb" firstAttribute="top" secondItem="wiB-BX-aKG" secondAttribute="bottom" constant="5" id="m9C-mo-aKm"/>
                 <constraint firstAttribute="trailing" secondItem="Gsu-Qb-PBr" secondAttribute="trailing" id="nC4-25-HVA"/>
                 <constraint firstItem="64l-Iq-BA4" firstAttribute="top" secondItem="bnL-Ne-fgb" secondAttribute="bottom" constant="2" id="owG-2s-xGu"/>
                 <constraint firstItem="ipH-yQ-ynR" firstAttribute="top" secondItem="64l-Iq-BA4" secondAttribute="bottom" constant="2" id="t2p-X6-0fs"/>
                 <constraint firstItem="n9E-u0-TXv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vCA-ox-Kfy"/>
                 <constraint firstAttribute="trailing" secondItem="64l-Iq-BA4" secondAttribute="trailing" constant="456" id="vul-ta-kf7"/>
-                <constraint firstItem="sq3-rH-0Lb" firstAttribute="top" secondItem="n9E-u0-TXv" secondAttribute="bottom" constant="104" id="wpu-Qe-Xbi"/>
+                <constraint firstItem="sq3-rH-0Lb" firstAttribute="top" secondItem="n9E-u0-TXv" secondAttribute="bottom" constant="196" id="wpu-Qe-Xbi"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
@@ -117,6 +155,7 @@
                     <exclude reference="7WJ-Mw-csz"/>
                     <exclude reference="iqs-za-rGr"/>
                     <exclude reference="vul-ta-kf7"/>
+                    <exclude reference="wpu-Qe-Xbi"/>
                 </mask>
             </variation>
         </view>

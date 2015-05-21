@@ -48,14 +48,7 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
         println(listings)
         if let cell = tableView.dequeueReusableCellWithIdentifier("RentalListingCell", forIndexPath: indexPath) as? RentalListingCell {
             if let listings = listings {
-                var listing = listings[indexPath.row]
-                cell.headingLabel.text = listing.heading
-                cell.numBedroomsLabel.text = "\(String(listing.numBedrooms)) Bedroom(s)"
-                cell.numBathroomsLabel.text = "\(String(listing.numBathrooms)) Bathroom(s)"
-                cell.priceLabel.text = "$\(String(listing.nightlyPrice)) Per Night"
-                if let smallUrls = listing.smallUrlStrings {
-                    cell.rentalImage.setImageWithURL(NSURL(string: smallUrls[0]))
-                }
+                cell.listing = listings[indexPath.row]
             }
             return cell
         }

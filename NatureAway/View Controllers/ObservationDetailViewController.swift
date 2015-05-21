@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObservationDetailViewController: UIViewController, UIScrollViewDelegate {
+class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate {
     
     var observation: Observation?
 
@@ -21,7 +21,10 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-
+    @IBOutlet weak var rentalTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     var pageImageViews = [UIImageView?]()
     var pageUrlStrings = [String]()
     
@@ -36,6 +39,9 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
+        
+        rentalTableView.hidden = true
+        activityIndicator.startAnimating()
 
         if let observation = observation {
             initPageControl()
@@ -122,7 +128,16 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate {
             listingsViewController.longitude = observation.longitudeFloat
             navigationController?.pushViewController(listingsViewController, animated: true)
         }
-    }    
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
 
     /*
     // MARK: - Navigation
