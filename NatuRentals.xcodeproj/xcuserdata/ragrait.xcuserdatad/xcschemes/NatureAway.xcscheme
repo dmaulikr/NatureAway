@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "552D23C11B0468C80034A2C5"
-               BuildableName = "NatureAway.app"
-               BlueprintName = "NatureAway"
-               ReferencedContainer = "container:NatureAway.xcodeproj">
+               BuildableName = "NatuRentals.app"
+               BlueprintName = "NatuRentals"
+               ReferencedContainer = "container:NatuRentals.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "552D23D61B0468C80034A2C5"
-               BuildableName = "NatureAwayTests.xctest"
-               BlueprintName = "NatureAwayTests"
-               ReferencedContainer = "container:NatureAway.xcodeproj">
+               BuildableName = "NatuRentalsTests.xctest"
+               BlueprintName = "NatuRentalsTests"
+               ReferencedContainer = "container:NatuRentals.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "552D23D61B0468C80034A2C5"
-               BuildableName = "NatureAwayTests.xctest"
-               BlueprintName = "NatureAwayTests"
-               ReferencedContainer = "container:NatureAway.xcodeproj">
+               BuildableName = "NatuRentalsTests.xctest"
+               BlueprintName = "NatuRentalsTests"
+               ReferencedContainer = "container:NatuRentals.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "552D23C11B0468C80034A2C5"
-            BuildableName = "NatureAway.app"
-            BlueprintName = "NatureAway"
-            ReferencedContainer = "container:NatureAway.xcodeproj">
+            BuildableName = "NatuRentals.app"
+            BlueprintName = "NatuRentals"
+            ReferencedContainer = "container:NatuRentals.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "552D23C11B0468C80034A2C5"
-            BuildableName = "NatureAway.app"
-            BlueprintName = "NatureAway"
-            ReferencedContainer = "container:NatureAway.xcodeproj">
+            BuildableName = "NatuRentals.app"
+            BlueprintName = "NatuRentals"
+            ReferencedContainer = "container:NatuRentals.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "552D23C11B0468C80034A2C5"
-            BuildableName = "NatureAway.app"
-            BlueprintName = "NatureAway"
-            ReferencedContainer = "container:NatureAway.xcodeproj">
+            BuildableName = "NatuRentals.app"
+            BlueprintName = "NatuRentals"
+            ReferencedContainer = "container:NatuRentals.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

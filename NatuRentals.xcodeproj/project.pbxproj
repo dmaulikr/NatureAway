@@ -56,14 +56,14 @@
 		550D51201B0469D5002F1DA1 /* INaturalistClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = INaturalistClient.swift; sourceTree = "<group>"; };
 		550D51221B046A88002F1DA1 /* NatureAway-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NatureAway-Bridging-Header.h"; sourceTree = "<group>"; };
 		550D518C1B058793002F1DA1 /* Observation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
-		552D23C21B0468C80034A2C5 /* NatureAway.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NatureAway.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		552D23C21B0468C80034A2C5 /* NatuRentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NatuRentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		552D23C61B0468C80034A2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552D23C71B0468C80034A2C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		552D23C91B0468C80034A2C5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = ../SearchViewController.swift; sourceTree = "<group>"; };
 		552D23CC1B0468C80034A2C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		552D23CE1B0468C80034A2C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		552D23D11B0468C80034A2C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		552D23D71B0468C80034A2C5 /* NatureAwayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NatureAwayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		552D23D71B0468C80034A2C5 /* NatuRentalsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NatuRentalsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		552D23DC1B0468C80034A2C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		552D23DD1B0468C80034A2C5 /* NatureAwayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatureAwayTests.swift; sourceTree = "<group>"; };
 		555E0CBF1B0C4AA100768BD3 /* UIImageView+NatureAway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+NatureAway.swift"; sourceTree = "<group>"; };
@@ -153,8 +153,8 @@
 		552D23C31B0468C80034A2C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				552D23C21B0468C80034A2C5 /* NatureAway.app */,
-				552D23D71B0468C80034A2C5 /* NatureAwayTests.xctest */,
+				552D23C21B0468C80034A2C5 /* NatuRentals.app */,
+				552D23D71B0468C80034A2C5 /* NatuRentalsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,9 +254,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		552D23C11B0468C80034A2C5 /* NatureAway */ = {
+		552D23C11B0468C80034A2C5 /* NatuRentals */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 552D23E11B0468C80034A2C5 /* Build configuration list for PBXNativeTarget "NatureAway" */;
+			buildConfigurationList = 552D23E11B0468C80034A2C5 /* Build configuration list for PBXNativeTarget "NatuRentals" */;
 			buildPhases = (
 				5E7A233D8150D7675DE5E5FA /* Check Pods Manifest.lock */,
 				552D23BE1B0468C80034A2C5 /* Sources */,
@@ -268,14 +268,14 @@
 			);
 			dependencies = (
 			);
-			name = NatureAway;
+			name = NatuRentals;
 			productName = NatureAway;
-			productReference = 552D23C21B0468C80034A2C5 /* NatureAway.app */;
+			productReference = 552D23C21B0468C80034A2C5 /* NatuRentals.app */;
 			productType = "com.apple.product-type.application";
 		};
-		552D23D61B0468C80034A2C5 /* NatureAwayTests */ = {
+		552D23D61B0468C80034A2C5 /* NatuRentalsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 552D23E41B0468C80034A2C5 /* Build configuration list for PBXNativeTarget "NatureAwayTests" */;
+			buildConfigurationList = 552D23E41B0468C80034A2C5 /* Build configuration list for PBXNativeTarget "NatuRentalsTests" */;
 			buildPhases = (
 				552D23D31B0468C80034A2C5 /* Sources */,
 				552D23D41B0468C80034A2C5 /* Frameworks */,
@@ -286,9 +286,9 @@
 			dependencies = (
 				552D23D91B0468C80034A2C5 /* PBXTargetDependency */,
 			);
-			name = NatureAwayTests;
+			name = NatuRentalsTests;
 			productName = NatureAwayTests;
-			productReference = 552D23D71B0468C80034A2C5 /* NatureAwayTests.xctest */;
+			productReference = 552D23D71B0468C80034A2C5 /* NatuRentalsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -309,7 +309,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 552D23BD1B0468C80034A2C5 /* Build configuration list for PBXProject "NatureAway" */;
+			buildConfigurationList = 552D23BD1B0468C80034A2C5 /* Build configuration list for PBXProject "NatuRentals" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -322,8 +322,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				552D23C11B0468C80034A2C5 /* NatureAway */,
-				552D23D61B0468C80034A2C5 /* NatureAwayTests */,
+				552D23C11B0468C80034A2C5 /* NatuRentals */,
+				552D23D61B0468C80034A2C5 /* NatuRentalsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -427,7 +427,7 @@
 /* Begin PBXTargetDependency section */
 		552D23D91B0468C80034A2C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 552D23C11B0468C80034A2C5 /* NatureAway */;
+			target = 552D23C11B0468C80034A2C5 /* NatuRentals */;
 			targetProxy = 552D23D81B0468C80034A2C5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -541,7 +541,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = NatureAway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NatuRentals;
 				SWIFT_OBJC_BRIDGING_HEADER = "NatureAway/NatureAway-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -555,7 +555,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = NatureAway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NatuRentals;
 				SWIFT_OBJC_BRIDGING_HEADER = "NatureAway/NatureAway-Bridging-Header.h";
 			};
 			name = Release;
@@ -574,7 +574,7 @@
 				);
 				INFOPLIST_FILE = NatureAwayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NatuRentalsTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NatureAway.app/NatureAway";
 			};
 			name = Debug;
@@ -589,7 +589,7 @@
 				);
 				INFOPLIST_FILE = NatureAwayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NatuRentalsTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NatureAway.app/NatureAway";
 			};
 			name = Release;
@@ -597,7 +597,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		552D23BD1B0468C80034A2C5 /* Build configuration list for PBXProject "NatureAway" */ = {
+		552D23BD1B0468C80034A2C5 /* Build configuration list for PBXProject "NatuRentals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				552D23DF1B0468C80034A2C5 /* Debug */,
@@ -606,7 +606,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		552D23E11B0468C80034A2C5 /* Build configuration list for PBXNativeTarget "NatureAway" */ = {
+		552D23E11B0468C80034A2C5 /* Build configuration list for PBXNativeTarget "NatuRentals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				552D23E21B0468C80034A2C5 /* Debug */,
@@ -615,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		552D23E41B0468C80034A2C5 /* Build configuration list for PBXNativeTarget "NatureAwayTests" */ = {
+		552D23E41B0468C80034A2C5 /* Build configuration list for PBXNativeTarget "NatuRentalsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				552D23E51B0468C80034A2C5 /* Debug */,
