@@ -168,7 +168,7 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
         
         if let observation = observation {
 
-            ZilyoClient.sharedInstance.getListings(false, latitude: observation.coordinate.latitude, longitude:  observation.coordinate.longitude, count: 2) { (listings: [RentalListing]?, error: NSError?) -> Void in
+            ZilyoClient.sharedInstance.getListings(false, latitude: observation.coordinate.latitude, longitude:  observation.coordinate.longitude, count: 1) { (listings: [RentalListing]?, error: NSError?) -> Void in
                 if let listings = listings {
                     self.listings = listings
                     self.rentalTableView.hidden = false
