@@ -66,9 +66,10 @@
                     <subviews>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xWQ-lB-gBh">
                             <rect key="frame" x="281" y="-11" width="39" height="37"/>
+                            <color key="pageIndicatorTintColor" red="0.44705882349999998" green="0.68235294120000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </pageControl>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="xWQ-lB-gBh" secondAttribute="centerX" id="DuO-2I-JV0"/>
                         <constraint firstAttribute="centerY" secondItem="xWQ-lB-gBh" secondAttribute="centerY" id="Vfv-YU-TYa"/>
@@ -98,13 +99,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wiB-BX-aKG">
                     <rect key="frame" x="0.0" y="441" width="600" height="160"/>
                     <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SfJ-fp-P6A">
+                            <rect key="frame" x="290" y="70" width="20" height="20"/>
+                        </activityIndicatorView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mps-uN-KVn">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="160"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SfJ-fp-P6A">
-                            <rect key="frame" x="290" y="70" width="20" height="20"/>
-                        </activityIndicatorView>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="SfJ-fp-P6A" secondAttribute="centerX" id="ITu-fn-vf5"/>

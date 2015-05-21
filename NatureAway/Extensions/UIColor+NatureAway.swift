@@ -12,4 +12,7 @@ extension UIColor {
     class var nature_Green:UIColor {
         return UIColor(red: 114.0 / 255.0, green: 174.0 / 255.0, blue: 0.0 / 255.0, alpha: 1.0)
     }
+    
+    class var nature_OffWhite:UIColor {
+        return UIColor(red: 241.0 / 255.0, green: 241.0 / 255.0, blue: 241.0 / 255.0, alpha: 1.0)    }
 }
