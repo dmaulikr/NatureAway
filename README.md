@@ -40,3 +40,11 @@ Mashup of iNaturalist and various rental sites that lets you use the iNaturalist
 ### Walkthrough
 
 ![Video Walkthrough](naturentals.gif)
+
+
+Credits
+-------
+* [iNaturalist API](http://www.inaturalist.org/pages/api+reference)
+* [Zilyo API](https://www.mashape.com/zilyo/zilyo)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+* Design Help: Mike Towber
