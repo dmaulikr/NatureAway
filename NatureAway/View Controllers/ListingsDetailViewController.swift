@@ -20,6 +20,7 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var textScrollView: UIScrollView!
     
+    @IBOutlet weak var contentView: UIView!
     var listing: RentalListing?
     
     var pageImageViews = [UIImageView?]()
@@ -51,6 +52,11 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
         
         textScrollView.contentSize.width = textScrollView.superview!.frame.size.width
         textScrollView.directionalLockEnabled = true
+        
+        let leadingConstraint = NSLayoutConstraint(item: contentView, attribute: NSLayoutAttribute.LeadingMargin, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.LeadingMargin, multiplier: 1.0, constant: 0.0)
+        view.addConstraint(leadingConstraint)
+        let trailingConstraint = NSLayoutConstraint(item: contentView, attribute: NSLayoutAttribute.TrailingMargin, relatedBy: NSLayoutRelation.Equal, toItem: view, attribute: NSLayoutAttribute.TrailingMargin, multiplier: 1.0, constant: 0.0)
+        view.addConstraint(trailingConstraint)
     }
     
     func initPageControl() {

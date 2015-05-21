@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListingsDetailViewController" customModule="NatureAway" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="E2s-BB-fye" id="TtE-pC-Ff3"/>
                 <outlet property="descriptionLabel" destination="Or5-SW-iD5" id="i0h-f7-1z8"/>
                 <outlet property="listingHeadingLabel" destination="9g4-Tj-TnH" id="kCp-Hr-rTM"/>
                 <outlet property="pageControl" destination="yh3-Zt-hdM" id="Hql-zD-wWz"/>
@@ -57,6 +58,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="221" placeholder="YES" id="1P8-eO-8RY"/>
                                 <constraint firstItem="Or5-SW-iD5" firstAttribute="top" secondItem="jlo-Qf-cgB" secondAttribute="bottom" constant="13" id="3bi-ZE-Hp6"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9g4-Tj-TnH" secondAttribute="trailing" constant="8" id="5cj-5L-FG5"/>
                                 <constraint firstItem="jlo-Qf-cgB" firstAttribute="top" secondItem="9g4-Tj-TnH" secondAttribute="bottom" constant="5" id="97Q-2S-Nug"/>
@@ -64,11 +66,13 @@
                                 <constraint firstItem="Or5-SW-iD5" firstAttribute="top" secondItem="9g4-Tj-TnH" secondAttribute="bottom" constant="13" id="Glv-5S-2Ml"/>
                                 <constraint firstItem="Or5-SW-iD5" firstAttribute="top" secondItem="der-eZ-ZWQ" secondAttribute="bottom" constant="8" id="HGL-Qa-dzk"/>
                                 <constraint firstItem="9g4-Tj-TnH" firstAttribute="leading" secondItem="E2s-BB-fye" secondAttribute="leading" constant="73" id="I10-ls-0yJ"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Or5-SW-iD5" secondAttribute="bottom" constant="8" id="JZW-Z0-ZQV"/>
                                 <constraint firstItem="jlo-Qf-cgB" firstAttribute="leading" secondItem="Or5-SW-iD5" secondAttribute="leading" id="M6y-J7-2Rl"/>
                                 <constraint firstItem="jlo-Qf-cgB" firstAttribute="leading" secondItem="9g4-Tj-TnH" secondAttribute="leading" id="NiK-dE-Qsw"/>
                                 <constraint firstItem="9g4-Tj-TnH" firstAttribute="leading" secondItem="E2s-BB-fye" secondAttribute="leading" constant="13" id="fT9-y4-GU3"/>
                                 <constraint firstItem="der-eZ-ZWQ" firstAttribute="top" secondItem="jlo-Qf-cgB" secondAttribute="bottom" constant="2" id="hbV-lt-8dB"/>
                                 <constraint firstItem="9g4-Tj-TnH" firstAttribute="top" secondItem="E2s-BB-fye" secondAttribute="top" constant="4" id="jAp-XA-7mr"/>
+                                <constraint firstAttribute="width" constant="600" placeholder="YES" id="nBV-JI-K2L"/>
                                 <constraint firstItem="Or5-SW-iD5" firstAttribute="leading" secondItem="E2s-BB-fye" secondAttribute="leading" constant="13" id="q5j-84-1IY"/>
                                 <constraint firstItem="jlo-Qf-cgB" firstAttribute="leading" secondItem="der-eZ-ZWQ" secondAttribute="leading" id="xZx-wF-8JI"/>
                             </constraints>
@@ -87,7 +91,7 @@
                         <constraint firstItem="E2s-BB-fye" firstAttribute="top" secondItem="erE-oN-iGM" secondAttribute="top" id="FFK-0M-Mms"/>
                         <constraint firstItem="E2s-BB-fye" firstAttribute="leading" secondItem="erE-oN-iGM" secondAttribute="leading" id="Qr8-d7-7pk"/>
                         <constraint firstAttribute="trailing" secondItem="E2s-BB-fye" secondAttribute="trailing" id="TXU-XF-Zum"/>
-                        <constraint firstAttribute="bottom" secondItem="E2s-BB-fye" secondAttribute="bottom" constant="25" id="YBJ-O4-fcK"/>
+                        <constraint firstAttribute="bottom" secondItem="E2s-BB-fye" secondAttribute="bottom" id="YBJ-O4-fcK"/>
                         <constraint firstItem="E2s-BB-fye" firstAttribute="top" secondItem="erE-oN-iGM" secondAttribute="top" id="kUq-Iy-c3Z"/>
                         <constraint firstItem="E2s-BB-fye" firstAttribute="leading" secondItem="erE-oN-iGM" secondAttribute="leading" id="nG7-Vk-Udt"/>
                         <constraint firstAttribute="height" secondItem="E2s-BB-fye" secondAttribute="height" id="ne4-6x-jQ3"/>
@@ -95,9 +99,11 @@
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="C8s-hc-faX"/>
                             <exclude reference="Qr8-d7-7pk"/>
                             <exclude reference="TXU-XF-Zum"/>
                             <exclude reference="kUq-Iy-c3Z"/>
+                            <exclude reference="ne4-6x-jQ3"/>
                             <exclude reference="pwI-fQ-U09"/>
                         </mask>
                     </variation>
