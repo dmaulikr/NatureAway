@@ -70,6 +70,10 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     func onListingImageTapped(notification: NSNotification) {
         if let userInfo = notification.userInfo, index = userInfo["index"] as? Int,
             listings = listings where listings.count > index {

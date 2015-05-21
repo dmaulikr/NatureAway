@@ -55,8 +55,6 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
             }
 
             cell.tag = indexPath.row
-            cell.listingButton.tag = indexPath.row
-            
             return cell
         }
         return UITableViewCell()

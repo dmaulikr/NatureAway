@@ -24,6 +24,10 @@ class RentalListingCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: "onImageTapped")
         rentalImage.addGestureRecognizer(tapGesture)
         rentalImage.userInteractionEnabled = true
+        
+        var selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = UIColor.nature_Green
+        self.selectedBackgroundView = selectedBackgroundView
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -22,6 +22,7 @@
 		5589967B1B071EAB004F9DE3 /* ObservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5589967A1B071EAB004F9DE3 /* ObservationCell.swift */; };
 		559ED1CD1B0AEF980077BE26 /* ObservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559ED1CB1B0AEF980077BE26 /* ObservationDetailViewController.swift */; };
 		559ED1CE1B0AEF980077BE26 /* ObservationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 559ED1CC1B0AEF980077BE26 /* ObservationDetailViewController.xib */; };
+		55E111EF1B0D582D0095E211 /* UIColor+NatureAway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E111EE1B0D582D0095E211 /* UIColor+NatureAway.swift */; };
 		8270767A1B08324C00FCF47A /* ZilyoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827076791B08324C00FCF47A /* ZilyoClient.swift */; };
 		8270767C1B08375400FCF47A /* RentalListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270767B1B08375400FCF47A /* RentalListing.swift */; };
 		827076851B0C3E5900FCF47A /* ListingsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827076831B0C3E5900FCF47A /* ListingsDetailViewController.swift */; };
@@ -69,6 +70,7 @@
 		5589967A1B071EAB004F9DE3 /* ObservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationCell.swift; sourceTree = "<group>"; };
 		559ED1CB1B0AEF980077BE26 /* ObservationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservationDetailViewController.swift; sourceTree = "<group>"; };
 		559ED1CC1B0AEF980077BE26 /* ObservationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ObservationDetailViewController.xib; sourceTree = "<group>"; };
+		55E111EE1B0D582D0095E211 /* UIColor+NatureAway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+NatureAway.swift"; sourceTree = "<group>"; };
 		827076791B08324C00FCF47A /* ZilyoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZilyoClient.swift; sourceTree = "<group>"; };
 		8270767B1B08375400FCF47A /* RentalListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalListing.swift; sourceTree = "<group>"; };
 		827076831B0C3E5900FCF47A /* ListingsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingsDetailViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				555E0CBF1B0C4AA100768BD3 /* UIImageView+NatureAway.swift */,
+				55E111EE1B0D582D0095E211 /* UIColor+NatureAway.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				5589967B1B071EAB004F9DE3 /* ObservationCell.swift in Sources */,
 				827076851B0C3E5900FCF47A /* ListingsDetailViewController.swift in Sources */,
 				82CE29CF1B0C473900DD6325 /* ListingsViewController.swift in Sources */,
+				55E111EF1B0D582D0095E211 /* UIColor+NatureAway.swift in Sources */,
 				550D51211B0469D5002F1DA1 /* INaturalistClient.swift in Sources */,
 				8A4825051B0A88F400C3BFC2 /* ObservationTabController.swift in Sources */,
 				558996751B070390004F9DE3 /* Species.swift in Sources */,

@@ -140,7 +140,7 @@
                                 <rect key="frame" x="0.0" y="63" width="600" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="79" id="tCU-5L-gaY" customClass="ObservationCell" customModule="NatureAway" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="79" id="tCU-5L-gaY" customClass="ObservationCell" customModule="NatureAway" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tCU-5L-gaY" id="aVC-K9-Uq6">
@@ -156,19 +156,6 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lwt-sI-Que">
-                                                    <rect key="frame" x="554" y="27" width="25" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="RuE-xZ-3Yu"/>
-                                                        <constraint firstAttribute="width" constant="25" id="vVu-cC-NAA"/>
-                                                    </constraints>
-                                                    <state key="normal" backgroundImage="1431861429_home-128">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="K6c-uB-JhU" kind="show" identifier="toListings" id="vIq-YR-IH9"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Species Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-uU-o8V">
                                                     <rect key="frame" x="76" y="18" width="248" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -176,22 +163,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="lwt-sI-Que" secondAttribute="centerY" id="2OU-CD-38n"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="lwt-sI-Que" secondAttribute="trailing" constant="34" id="2X2-k0-JX5"/>
-                                                <constraint firstAttribute="centerY" secondItem="lwt-sI-Que" secondAttribute="centerY" constant="2" id="K2y-24-cCM"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="lwt-sI-Que" secondAttribute="trailing" constant="13" id="Kfu-wg-vGC"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="2X2-k0-JX5"/>
-                                                    <exclude reference="K2y-24-cCM"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="distanceLabel" destination="Ak8-La-X4k" id="5xm-g0-oSo"/>
-                                            <outlet property="listingButton" destination="lwt-sI-Que" id="e3a-ps-HC2"/>
                                             <outlet property="nameLabel" destination="Wbm-uU-o8V" id="ZCz-eM-Zca"/>
                                             <outlet property="observationImageView" destination="kpB-1C-Mqw" id="lrV-nE-tca"/>
                                         </connections>
@@ -485,7 +459,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1431861429_home-128" width="128" height="128"/>
         <image name="map-icon-24" width="24" height="24"/>
         <image name="menu-2-icon-24" width="24" height="24"/>
     </resources>

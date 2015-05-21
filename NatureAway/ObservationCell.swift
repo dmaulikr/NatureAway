@@ -12,7 +12,6 @@ class ObservationCell: UITableViewCell {
 
     @IBOutlet weak var observationImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var listingButton: UIButton!
     @IBOutlet weak var distanceLabel: UILabel!
     
     override func awakeFromNib() {
@@ -22,6 +21,10 @@ class ObservationCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: "onImageTapped")
         observationImageView.addGestureRecognizer(tapGesture)
         observationImageView.userInteractionEnabled = true
+        
+        var selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = UIColor.nature_Green
+        self.selectedBackgroundView = selectedBackgroundView
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
