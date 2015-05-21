@@ -8,7 +8,7 @@
         <!--NatuRentals-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SearchViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="SearchViewController" customModule="NatuRentals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -29,28 +29,29 @@
                                 <rect key="frame" x="0.0" y="108" width="600" height="484"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="EJ0-fP-amH">
-                                    <size key="itemSize" width="120" height="156"/>
+                                    <size key="itemSize" width="110" height="156"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="cmH-Rt-OtI" customClass="GridCell" customModule="NatureAway" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GridCell" id="cmH-Rt-OtI" customClass="GridCell" customModule="NatuRentals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qnX-e9-Sqa">
-                                                    <rect key="frame" x="10" y="8" width="100" height="100"/>
+                                                    <rect key="frame" x="0.0" y="8" width="110" height="110"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="Ljb-JN-HIE"/>
-                                                        <constraint firstAttribute="width" constant="100" id="gcz-OY-j23"/>
+                                                        <constraint firstAttribute="height" constant="110" id="Ljb-JN-HIE"/>
+                                                        <constraint firstAttribute="width" constant="110" id="gcz-OY-j23"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nudibranch" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGf-Zf-HRx">
-                                                    <rect key="frame" x="10" y="112" width="100" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Butterflies and moths" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGf-Zf-HRx">
+                                                    <rect key="frame" x="0.0" y="120" width="110" height="36"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="36z-lH-z0z"/>
                                                     </constraints>
@@ -71,23 +72,26 @@
                                             <constraint firstAttribute="trailing" secondItem="qnX-e9-Sqa" secondAttribute="trailing" constant="10" id="Eye-to-nWA"/>
                                             <constraint firstItem="qnX-e9-Sqa" firstAttribute="top" secondItem="cmH-Rt-OtI" secondAttribute="top" constant="8" id="G1q-Hh-eK3"/>
                                             <constraint firstItem="qnX-e9-Sqa" firstAttribute="top" secondItem="cmH-Rt-OtI" secondAttribute="top" constant="8" id="LkA-Zh-Wdx"/>
+                                            <constraint firstAttribute="centerX" secondItem="qnX-e9-Sqa" secondAttribute="centerX" id="NJE-r8-vXv"/>
                                             <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="6" id="NNR-MM-cf6"/>
                                             <constraint firstItem="qnX-e9-Sqa" firstAttribute="leading" secondItem="cmH-Rt-OtI" secondAttribute="leading" constant="10" id="ZQa-hc-5Cw"/>
-                                            <constraint firstItem="BGf-Zf-HRx" firstAttribute="leading" secondItem="cmH-Rt-OtI" secondAttribute="leading" constant="10" id="b2E-DO-32L"/>
+                                            <constraint firstItem="BGf-Zf-HRx" firstAttribute="leading" secondItem="cmH-Rt-OtI" secondAttribute="leading" id="b2E-DO-32L"/>
                                             <constraint firstAttribute="bottom" secondItem="BGf-Zf-HRx" secondAttribute="bottom" constant="6" id="dtL-ym-104"/>
-                                            <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="4" id="dtw-5k-fcD"/>
+                                            <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="2" id="dtw-5k-fcD"/>
                                             <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="3" id="fvP-pi-oee"/>
                                             <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="3" id="lgC-QY-Af7"/>
                                             <constraint firstItem="qnX-e9-Sqa" firstAttribute="leading" secondItem="cmH-Rt-OtI" secondAttribute="leading" constant="10" id="nZK-Gg-Yf6"/>
-                                            <constraint firstAttribute="trailing" secondItem="BGf-Zf-HRx" secondAttribute="trailing" constant="10" id="uTx-x5-0gm"/>
+                                            <constraint firstAttribute="trailing" secondItem="BGf-Zf-HRx" secondAttribute="trailing" id="uTx-x5-0gm"/>
                                             <constraint firstItem="BGf-Zf-HRx" firstAttribute="top" secondItem="qnX-e9-Sqa" secondAttribute="bottom" constant="3" id="wwv-qy-80F"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BGf-Zf-HRx" secondAttribute="bottom" constant="4" id="zgh-4A-3ox"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BGf-Zf-HRx" secondAttribute="bottom" id="zgh-4A-3ox"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="DCB-vk-B3j"/>
+                                                <exclude reference="Eye-to-nWA"/>
                                                 <exclude reference="G1q-Hh-eK3"/>
                                                 <exclude reference="ZQa-hc-5Cw"/>
+                                                <exclude reference="nZK-Gg-Yf6"/>
                                                 <exclude reference="NNR-MM-cf6"/>
                                                 <exclude reference="dtL-ym-104"/>
                                                 <exclude reference="fvP-pi-oee"/>
@@ -102,7 +106,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionHeaderView" id="CuU-m5-hwT" customClass="CollectionHeaderView" customModule="NatureAway" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionHeaderView" id="CuU-m5-hwT" customClass="CollectionHeaderView" customModule="NatuRentals" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -144,7 +148,7 @@
         <!--List-->
         <scene sceneID="i7C-O0-rKF">
             <objects>
-                <viewController id="nS4-0I-eLc" customClass="ObservationsViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nS4-0I-eLc" customClass="ObservationsViewController" customModule="NatuRentals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gNv-Lj-HGS"/>
                         <viewControllerLayoutGuide type="bottom" id="DyB-xZ-tlY"/>
@@ -157,7 +161,7 @@
                                 <rect key="frame" x="0.0" y="63" width="600" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="80" id="tCU-5L-gaY" customClass="ObservationCell" customModule="NatureAway" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ObservationCell" rowHeight="80" id="tCU-5L-gaY" customClass="ObservationCell" customModule="NatuRentals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tCU-5L-gaY" id="aVC-K9-Uq6">
@@ -239,7 +243,7 @@
         <!--Listings View Controller-->
         <scene sceneID="0HS-0u-Lg0">
             <objects>
-                <viewController storyboardIdentifier="ListingsViewController" id="K6c-uB-JhU" customClass="ListingsViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ListingsViewController" id="K6c-uB-JhU" customClass="ListingsViewController" customModule="NatuRentals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8xb-NJ-hNa"/>
                         <viewControllerLayoutGuide type="bottom" id="q1t-7A-nFb"/>
@@ -252,7 +256,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RentalListingCell" rowHeight="137" id="6uK-UL-lJG" customClass="RentalListingCell" customModule="NatureAway" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RentalListingCell" rowHeight="137" id="6uK-UL-lJG" customClass="RentalListingCell" customModule="NatuRentals" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6uK-UL-lJG" id="7dj-pw-v7O">
@@ -352,7 +356,7 @@
         <!--Map-->
         <scene sceneID="rEG-hw-OBv">
             <objects>
-                <viewController id="Qeq-Yj-Pb6" customClass="MapViewController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qeq-Yj-Pb6" customClass="MapViewController" customModule="NatuRentals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fmg-cD-sXG"/>
                         <viewControllerLayoutGuide type="bottom" id="IrO-Uo-iNS"/>
@@ -486,7 +490,7 @@
         <!--Observations-->
         <scene sceneID="J4y-T2-NsM">
             <objects>
-                <tabBarController title="Observations" automaticallyAdjustsScrollViewInsets="NO" id="1YJ-5D-xfO" customClass="ObservationTabController" customModule="NatureAway" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController title="Observations" automaticallyAdjustsScrollViewInsets="NO" id="1YJ-5D-xfO" customClass="ObservationTabController" customModule="NatuRentals" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="k3Q-hh-IA3">
