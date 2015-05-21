@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yJs-Td-dTj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yJs-Td-dTj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -146,7 +146,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tCU-5L-gaY" id="aVC-K9-Uq6">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpB-1C-Mqw">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kpB-1C-Mqw">
                                                     <rect key="frame" x="8" y="0.0" width="80" height="79"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -248,20 +248,14 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="X Bedrooms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cn-kL-1Ra">
-                                                    <rect key="frame" x="126" y="54" width="74" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="X Bedrooms / X Bathrooms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cn-kL-1Ra">
+                                                    <rect key="frame" x="126" y="54" width="164" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$$$ per night" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbJ-n3-2uB">
-                                                    <rect key="frame" x="126" y="93" width="80" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="X Bathrooms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l86-a7-cYu">
-                                                    <rect key="frame" x="126" y="72" width="78" height="16"/>
+                                                    <rect key="frame" x="126" y="78" width="80" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -286,24 +280,21 @@
                                             <constraints>
                                                 <constraint firstItem="5cn-kL-1Ra" firstAttribute="leading" secondItem="Oyd-ZX-oRA" secondAttribute="leading" id="4nS-gF-e91"/>
                                                 <constraint firstItem="5cn-kL-1Ra" firstAttribute="leading" secondItem="YbJ-n3-2uB" secondAttribute="leading" id="54y-9W-9EO"/>
-                                                <constraint firstItem="5cn-kL-1Ra" firstAttribute="leading" secondItem="l86-a7-cYu" secondAttribute="leading" id="5bC-bR-7dN"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YbJ-n3-2uB" secondAttribute="bottom" constant="8" id="80e-P8-VEB"/>
                                                 <constraint firstItem="5cn-kL-1Ra" firstAttribute="leading" secondItem="GeX-PX-BR4" secondAttribute="trailing" constant="8" id="9rO-m5-LIJ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="GeX-PX-BR4" secondAttribute="bottom" constant="5" id="DEY-il-dv9"/>
+                                                <constraint firstItem="YbJ-n3-2uB" firstAttribute="top" secondItem="5cn-kL-1Ra" secondAttribute="bottom" constant="8" id="GO6-pb-v6e"/>
                                                 <constraint firstItem="GeX-PX-BR4" firstAttribute="bottom" secondItem="YbJ-n3-2uB" secondAttribute="bottom" id="HBt-w9-OjM"/>
                                                 <constraint firstItem="GeX-PX-BR4" firstAttribute="top" secondItem="7dj-pw-v7O" secondAttribute="topMargin" constant="5" id="LEq-Vz-Fje"/>
                                                 <constraint firstItem="Oyd-ZX-oRA" firstAttribute="leading" secondItem="GeX-PX-BR4" secondAttribute="trailing" constant="8" id="OLT-cG-J1f"/>
                                                 <constraint firstItem="5cn-kL-1Ra" firstAttribute="top" secondItem="Oyd-ZX-oRA" secondAttribute="bottom" constant="5" id="VlN-0z-ByP"/>
                                                 <constraint firstItem="GeX-PX-BR4" firstAttribute="top" secondItem="Oyd-ZX-oRA" secondAttribute="top" id="dgz-55-L4Y"/>
-                                                <constraint firstItem="l86-a7-cYu" firstAttribute="top" secondItem="Oyd-ZX-oRA" secondAttribute="bottom" constant="5" id="hMm-Uj-Svr"/>
                                                 <constraint firstItem="GeX-PX-BR4" firstAttribute="leading" secondItem="7dj-pw-v7O" secondAttribute="leadingMargin" constant="5" id="hQj-4z-U6A"/>
                                                 <constraint firstItem="T32-ah-Fj1" firstAttribute="top" secondItem="7dj-pw-v7O" secondAttribute="top" constant="13" id="k3O-fo-6We"/>
                                                 <constraint firstItem="T32-ah-Fj1" firstAttribute="leading" secondItem="Oyd-ZX-oRA" secondAttribute="trailing" constant="5" id="kKO-2f-caz"/>
-                                                <constraint firstItem="l86-a7-cYu" firstAttribute="top" secondItem="5cn-kL-1Ra" secondAttribute="bottom" constant="2" id="kta-cD-RP8"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GeX-PX-BR4" secondAttribute="bottom" constant="5" id="nc3-F4-gkF"/>
                                                 <constraint firstAttribute="trailing" secondItem="T32-ah-Fj1" secondAttribute="trailing" constant="8" id="pax-o0-c1Z"/>
                                                 <constraint firstItem="Oyd-ZX-oRA" firstAttribute="top" secondItem="7dj-pw-v7O" secondAttribute="top" constant="13" id="t5D-TY-b9t"/>
-                                                <constraint firstItem="YbJ-n3-2uB" firstAttribute="top" secondItem="l86-a7-cYu" secondAttribute="bottom" constant="5" id="y5h-0v-2jj"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -311,14 +302,12 @@
                                                     <exclude reference="HBt-w9-OjM"/>
                                                     <exclude reference="dgz-55-L4Y"/>
                                                     <exclude reference="4nS-gF-e91"/>
-                                                    <exclude reference="hMm-Uj-Svr"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="distanceLabel" destination="T32-ah-Fj1" id="Ijw-Ch-oP4"/>
                                             <outlet property="headingLabel" destination="Oyd-ZX-oRA" id="Ucf-UC-SVE"/>
-                                            <outlet property="numBathroomsLabel" destination="l86-a7-cYu" id="PWi-fD-fsx"/>
                                             <outlet property="numBedroomsLabel" destination="5cn-kL-1Ra" id="Inc-S0-Cbd"/>
                                             <outlet property="priceLabel" destination="YbJ-n3-2uB" id="wFf-Kj-rsi"/>
                                             <outlet property="rentalImage" destination="GeX-PX-BR4" id="hRo-TB-DXo"/>

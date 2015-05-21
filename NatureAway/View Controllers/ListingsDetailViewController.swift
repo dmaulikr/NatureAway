@@ -16,6 +16,8 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var textScrollView: UIScrollView!
+    
     var listing: RentalListing?
     
     var pageImageViews = [UIImageView?]()
@@ -32,6 +34,7 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
+        textScrollView.delegate = self
         
         if let listing = listing {
             initPageControl()
@@ -40,6 +43,9 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
             descriptionLabel.text = listing.listingDescription
 
         }
+        
+        textScrollView.contentSize.width = textScrollView.superview!.frame.size.width
+        textScrollView.directionalLockEnabled = true
     }
     
     func initPageControl() {
@@ -102,7 +108,10 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
         updatePageControl()
     }
 
-
+    @IBAction func onButtonClicked(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: listing!.listingUrl)!)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
