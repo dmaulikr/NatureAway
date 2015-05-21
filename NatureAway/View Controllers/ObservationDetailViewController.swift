@@ -49,8 +49,6 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
         rentalTableView.delegate = self
         rentalTableView.rowHeight = UITableViewAutomaticDimension
         rentalTableView.estimatedRowHeight = 80
-        //rentalTableView.registerClass(RentalCell.self, forCellReuseIdentifier: "RentalCell")
-        //tableView.registerNib(UINib(nibName: "CustomOneCell", bundle: nil), forCellReuseIdentifier: "CustomCellOne")
         rentalTableView.registerNib(UINib(nibName: "RentalCell", bundle: nil), forCellReuseIdentifier: "RentalCell")
         rentalTableView.hidden = true
         activityIndicator.startAnimating()
@@ -161,11 +159,16 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
         return 0
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        navigateToRental(indexPath.row)
+    }
+    
     func loadRentals() {
         
         if let observation = observation, latitude = observation.latitudeFloat, longitude = observation.longitudeFloat {
 
-            ZilyoClient.sharedInstance.getListings(false, latitude: latitude, longitude: longitude) { (listings: [RentalListing]?, error: NSError?) -> Void in
+            ZilyoClient.sharedInstance.getListings(false, latitude: latitude, longitude: longitude, count: 2) { (listings: [RentalListing]?, error: NSError?) -> Void in
                 if let listings = listings {
                     self.listings = listings
                     self.rentalTableView.hidden = false
@@ -176,6 +179,15 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
                     }
                 }
             }
+        }
+    }
+    
+    func navigateToRental(index: Int) {
+        if let listings = listings where listings.count > index {
+            let listing = listings[index]
+            let viewController = ListingsDetailViewController(nibName: "ListingsDetailViewController", bundle: nil)
+            viewController.listing = listing
+            navigationController?.pushViewController(viewController, animated: true)
         }
     }
     

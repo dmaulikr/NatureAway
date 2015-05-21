@@ -14,7 +14,7 @@ class ZilyoClient: AFHTTPRequestOperationManager {
     
     static let sharedInstance = ZilyoClient(baseURL: NSURL(string: zilyoBaseURL))
 
-    func getListings(isinstantbook: Bool, latitude: Float, longitude: Float, completion: ([RentalListing]?, NSError?) -> Void) {
+    func getListings(isinstantbook: Bool, latitude: Float, longitude: Float, count: Int = 20, completion: ([RentalListing]?, NSError?) -> Void) {
         
         var params = NSMutableDictionary()
         params["isinstantbook"] = isinstantbook
@@ -22,7 +22,7 @@ class ZilyoClient: AFHTTPRequestOperationManager {
         params["longitude"] = longitude
         params["provider"] = "airbnb"
         params["maxdistance"] = 200.0
-        
+        params["resultsperpage"] = count
         
         self.requestSerializer.setValue(mashapeKey, forHTTPHeaderField: "X-Mashape-Key")
         self.requestSerializer.setValue("application/json", forHTTPHeaderField: "Accept")

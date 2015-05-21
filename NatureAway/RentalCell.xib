@@ -13,8 +13,15 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j8u-W7-lRs" id="3bY-u4-Ho5">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rental something something less text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiK-cQ-rqh">
+                        <rect key="frame" x="91" y="13" width="493" height="18"/>
+                        <color key="tintColor" red="0.44705882349999998" green="0.68235294120000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="$$$ per night" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vya-Y9-wka">
-                        <rect key="frame" x="96" y="51" width="80" height="16"/>
+                        <rect key="frame" x="91" y="50" width="80" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="AA5-b5-Vd2"/>
                         </constraints>
@@ -23,36 +30,29 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="X Beds, 2 Baths" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP7-e7-nfC">
-                        <rect key="frame" x="96" y="34" width="97" height="16"/>
+                        <rect key="frame" x="91" y="33" width="97" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jIZ-hz-XCZ">
-                        <rect key="frame" x="8" y="-1" width="80" height="80"/>
+                        <rect key="frame" x="3" y="-1" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="120-Wf-h2u"/>
                             <constraint firstAttribute="width" constant="80" id="XFE-w0-M7x"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rental something something less text" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiK-cQ-rqh">
-                        <rect key="frame" x="96" y="13" width="488" height="18"/>
-                        <color key="tintColor" red="0.44705882349999998" green="0.68235294120000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="tP7-e7-nfC" firstAttribute="leading" secondItem="vya-Y9-wka" secondAttribute="leading" id="04k-VU-Icf"/>
                     <constraint firstItem="jIZ-hz-XCZ" firstAttribute="top" secondItem="3bY-u4-Ho5" secondAttribute="topMargin" constant="-9" id="51R-QB-gtM"/>
                     <constraint firstItem="aiK-cQ-rqh" firstAttribute="leading" secondItem="jIZ-hz-XCZ" secondAttribute="trailing" constant="8" id="8Mv-RG-lze"/>
-                    <constraint firstItem="tP7-e7-nfC" firstAttribute="top" secondItem="aiK-cQ-rqh" secondAttribute="bottom" constant="3" id="CU6-Yp-rMq"/>
+                    <constraint firstItem="tP7-e7-nfC" firstAttribute="top" secondItem="aiK-cQ-rqh" secondAttribute="bottom" constant="2" id="CU6-Yp-rMq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="jIZ-hz-XCZ" secondAttribute="bottom" constant="-8" id="DnD-wl-EA8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="aiK-cQ-rqh" secondAttribute="trailing" constant="8" id="GE3-E0-fbJ"/>
                     <constraint firstItem="aiK-cQ-rqh" firstAttribute="top" secondItem="3bY-u4-Ho5" secondAttribute="topMargin" constant="5" id="NUZ-Ta-NzV"/>
                     <constraint firstItem="tP7-e7-nfC" firstAttribute="leading" secondItem="jIZ-hz-XCZ" secondAttribute="trailing" constant="8" id="Ntv-Th-IrT"/>
-                    <constraint firstItem="jIZ-hz-XCZ" firstAttribute="leading" secondItem="3bY-u4-Ho5" secondAttribute="leadingMargin" id="QqP-jI-beO"/>
+                    <constraint firstItem="jIZ-hz-XCZ" firstAttribute="leading" secondItem="3bY-u4-Ho5" secondAttribute="leadingMargin" constant="-5" id="QqP-jI-beO"/>
                     <constraint firstItem="jIZ-hz-XCZ" firstAttribute="leading" secondItem="3bY-u4-Ho5" secondAttribute="leadingMargin" constant="8" id="ayN-Wp-7Bg"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="vya-Y9-wka" secondAttribute="trailing" constant="8" id="fNK-qh-MMF"/>
                     <constraint firstItem="vya-Y9-wka" firstAttribute="top" secondItem="tP7-e7-nfC" secondAttribute="bottom" constant="1" id="gNa-SV-9N7"/>
