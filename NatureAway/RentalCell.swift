@@ -20,7 +20,7 @@ class RentalCell: UITableViewCell {
         didSet {
             if let listing = listing {
                 rentalTitleLabel.text = listing.heading
-                rentalRoomsLabel.text = "\(String(listing.numBedrooms)) Beds, \(String(listing.numBathrooms)) Baths)"
+                rentalRoomsLabel.text = "\(String(listing.numBedrooms)) Beds, \(String(listing.numBathrooms)) Baths"
                 
                 rentalCostLabel.text = "$\(String(listing.nightlyPrice)) Per Night"
                 if let smallUrls = listing.smallUrlStrings where smallUrls.count > 0 {
