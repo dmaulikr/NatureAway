@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate {
+class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     var observation: Observation?
 
@@ -24,9 +24,14 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
     @IBOutlet weak var rentalTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
     var pageImageViews = [UIImageView?]()
     var pageUrlStrings = [String]()
+    
+    var listings: [RentalListing]? {
+        didSet {
+            self.rentalTableView.reloadData()
+        }
+    }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -40,6 +45,13 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
         super.viewDidLoad()
         scrollView.delegate = self
         
+        rentalTableView.dataSource = self
+        rentalTableView.delegate = self
+        rentalTableView.rowHeight = UITableViewAutomaticDimension
+        rentalTableView.estimatedRowHeight = 80
+        //rentalTableView.registerClass(RentalCell.self, forCellReuseIdentifier: "RentalCell")
+        //tableView.registerNib(UINib(nibName: "CustomOneCell", bundle: nil), forCellReuseIdentifier: "CustomCellOne")
+        rentalTableView.registerNib(UINib(nibName: "RentalCell", bundle: nil), forCellReuseIdentifier: "RentalCell")
         rentalTableView.hidden = true
         activityIndicator.startAnimating()
 
@@ -53,6 +65,8 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
                 observedOnLabel.text = "Observed on: " + observedOnString
             }
         }
+        
+        loadRentals()
     }
     
     func initPageControl() {
@@ -131,11 +145,38 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCellWithIdentifier("RentalCell", forIndexPath: indexPath) as? RentalCell {
+            if let listings = listings {
+                cell.listing = listings[indexPath.row]
+            }
+            return cell
+        }
         return UITableViewCell()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let listings = listings {
+            return listings.count
+        }
         return 0
+    }
+    
+    func loadRentals() {
+        
+        if let observation = observation, latitude = observation.latitudeFloat, longitude = observation.longitudeFloat {
+
+            ZilyoClient.sharedInstance.getListings(false, latitude: latitude, longitude: longitude) { (listings: [RentalListing]?, error: NSError?) -> Void in
+                if let listings = listings {
+                    self.listings = listings
+                    self.rentalTableView.hidden = false
+                    self.activityIndicator.hidden = true
+                } else {
+                    if let error = error {
+                        println(error)
+                    }
+                }
+            }
+        }
     }
     
 
