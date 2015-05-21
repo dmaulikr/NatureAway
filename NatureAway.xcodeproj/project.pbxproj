@@ -25,6 +25,7 @@
 		55E111EF1B0D582D0095E211 /* UIColor+NatureAway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E111EE1B0D582D0095E211 /* UIColor+NatureAway.swift */; };
 		55E111F61B0D8A940095E211 /* RentalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E111F51B0D8A940095E211 /* RentalCell.xib */; };
 		55E111F81B0D8C980095E211 /* RentalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E111F71B0D8C980095E211 /* RentalCell.swift */; };
+		55E111FA1B0DC4E00095E211 /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E111F91B0DC4E00095E211 /* CollectionHeaderView.swift */; };
 		8270767A1B08324C00FCF47A /* ZilyoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827076791B08324C00FCF47A /* ZilyoClient.swift */; };
 		8270767C1B08375400FCF47A /* RentalListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270767B1B08375400FCF47A /* RentalListing.swift */; };
 		827076851B0C3E5900FCF47A /* ListingsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827076831B0C3E5900FCF47A /* ListingsDetailViewController.swift */; };
@@ -75,6 +76,7 @@
 		55E111EE1B0D582D0095E211 /* UIColor+NatureAway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+NatureAway.swift"; sourceTree = "<group>"; };
 		55E111F51B0D8A940095E211 /* RentalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentalCell.xib; sourceTree = "<group>"; };
 		55E111F71B0D8C980095E211 /* RentalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalCell.swift; sourceTree = "<group>"; };
+		55E111F91B0DC4E00095E211 /* CollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		827076791B08324C00FCF47A /* ZilyoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZilyoClient.swift; sourceTree = "<group>"; };
 		8270767B1B08375400FCF47A /* RentalListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentalListing.swift; sourceTree = "<group>"; };
 		827076831B0C3E5900FCF47A /* ListingsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingsDetailViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				82CE29C51B0C453100DD6325 /* RentalListingCell.swift */,
 				55E111F51B0D8A940095E211 /* RentalCell.xib */,
 				55E111F71B0D8C980095E211 /* RentalCell.swift */,
+				55E111F91B0DC4E00095E211 /* CollectionHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8270767C1B08375400FCF47A /* RentalListing.swift in Sources */,
+				55E111FA1B0DC4E00095E211 /* CollectionHeaderView.swift in Sources */,
 				550D518D1B058793002F1DA1 /* Observation.swift in Sources */,
 				8A4825071B0A957500C3BFC2 /* ObservationAnnotationView.swift in Sources */,
 				552D23CA1B0468C80034A2C5 /* SearchViewController.swift in Sources */,

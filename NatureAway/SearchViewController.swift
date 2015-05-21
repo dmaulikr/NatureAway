@@ -69,6 +69,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
         return 0
     }
     
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        if kind == UICollectionElementKindSectionHeader {
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CollectionHeaderView", forIndexPath: indexPath) as! CollectionHeaderView
+            return headerView
+        }
+        return UICollectionReusableView()
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell), tabController = segue.destinationViewController as? ObservationTabController, species = species {
             let selectedSpecies = species[indexPath.row]
