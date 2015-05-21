@@ -72,15 +72,21 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        navigateToDetail(indexPath.row)
     }
     
     func onListingImageTapped(notification: NSNotification) {
-        if let userInfo = notification.userInfo, index = userInfo["index"] as? Int,
-            listings = listings where listings.count > index {
-                let listing = listings[index]
-                let viewController = ListingsDetailViewController(nibName: "ListingsDetailViewController", bundle: nil)
-                viewController.listing = listing
-                navigationController?.pushViewController(viewController, animated: true)
+        if let userInfo = notification.userInfo, index = userInfo["index"] as? Int {
+            navigateToDetail(index)
+        }
+    }
+    
+    func navigateToDetail(index: Int) {
+        if let listings = listings where listings.count > index {
+            let listing = listings[index]
+            let viewController = ListingsDetailViewController(nibName: "ListingsDetailViewController", bundle: nil)
+            viewController.listing = listing
+            navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
