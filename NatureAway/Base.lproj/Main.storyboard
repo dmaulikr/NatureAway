@@ -123,6 +123,13 @@
                                     </constraints>
                                 </collectionReusableView>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wWW-vD-ryS">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5Og-3P-G9t"/>
+                                    <constraint firstAttribute="width" constant="20" id="Oqe-lJ-LpR"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -130,13 +137,16 @@
                             <constraint firstItem="RCu-3q-AFF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="4P4-9e-AFS"/>
                             <constraint firstAttribute="trailing" secondItem="RCu-3q-AFF" secondAttribute="trailing" id="7Hu-3j-JZ9"/>
                             <constraint firstAttribute="trailing" secondItem="DJw-ke-6iK" secondAttribute="trailing" id="Hbr-Rn-YB5"/>
+                            <constraint firstAttribute="centerY" secondItem="wWW-vD-ryS" secondAttribute="centerY" id="R87-xf-0kh"/>
                             <constraint firstItem="DJw-ke-6iK" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="SwD-ZE-58x"/>
                             <constraint firstItem="RCu-3q-AFF" firstAttribute="top" secondItem="DJw-ke-6iK" secondAttribute="bottom" id="fdQ-rx-USt"/>
                             <constraint firstItem="DJw-ke-6iK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="jME-6M-hAX"/>
+                            <constraint firstAttribute="centerX" secondItem="wWW-vD-ryS" secondAttribute="centerX" id="vxq-Vi-Lkt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NatuRentals" id="eqV-yt-9of"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="wWW-vD-ryS" id="skX-tO-1bm"/>
                         <outlet property="collectionView" destination="RCu-3q-AFF" id="nLI-Qx-4wO"/>
                         <outlet property="searchBar" destination="DJw-ke-6iK" id="EUi-kd-iDf"/>
                     </connections>

@@ -15,6 +15,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
     
     var species: [Species]?
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,6 +24,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
         search("")
     }
 
@@ -37,6 +41,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
     
     func search(taxonName: String) {
         INaturalistClient.sharedInstance.getSpecies(taxonName, completion: { (species: [Species]?, error: NSError?) -> Void in
+            self.activityIndicator.stopAnimating()
             if let species = species  {
                 self.species = species
                 self.collectionView.reloadData()
