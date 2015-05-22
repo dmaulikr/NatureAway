@@ -80,6 +80,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         var location = searchBar.text
         geocoder?.geocodeAddressString(location
             , completionHandler: { (result: [AnyObject]!, error: NSError!) -> Void in
