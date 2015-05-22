@@ -34,33 +34,31 @@ class ObservationAnnotationView: MKAnnotationView {
         // Drawing code
     }
     */
-
-    override init(annotation: MKAnnotation, reuseIdentifier: String) {
-        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        let observation = self.annotation as! Observation
+    
+    func setObservation(observation: Observation) {
         if let taxonName = observation.iconicTaxonName {
             switch taxonName {
-                case "Mammalia":
-                    image = UIImage(named: "ic_mammals")
-                case "Plantae":
-                    image = UIImage(named: "ic_plants")
-                case "Aves":
-                    image = UIImage(named: "ic_birds")
-                case "Reptilia":
-                    image = UIImage(named: "ic_reptiles")
-                case "Fungi":
-                    image = UIImage(named: "ic_fungi")
-                case "Arachnida":
-                    image = UIImage(named: "ic_arachnids")
-                case "Mollusca":
-                    image = UIImage(named: "ic_mollusks")
-                case "Amphibia":
-                    image = UIImage(named: "ic_amphibians")
-                default:
-                    image = UIImage(named: "ic_insects")
+            case "Mammalia":
+                image = UIImage(named: "ic_mammals")
+            case "Plantae":
+                image = UIImage(named: "ic_plants")
+            case "Aves":
+                image = UIImage(named: "ic_birds")
+            case "Reptilia":
+                image = UIImage(named: "ic_reptiles")
+            case "Fungi":
+                image = UIImage(named: "ic_fungi")
+            case "Arachnida":
+                image = UIImage(named: "ic_arachnids")
+            case "Mollusca":
+                image = UIImage(named: "ic_mollusks")
+            case "Amphibia":
+                image = UIImage(named: "ic_amphibians")
+            default:
+                image = UIImage(named: "ic_insects")
             }
         }
-
+        
         if let urlString = observation.firstSmallUrlString {
             var imageView = UIImageView(frame: CGRectMake(15, 0, 40, 40))
             if let url = NSURL(string: urlString) {
@@ -73,6 +71,11 @@ class ObservationAnnotationView: MKAnnotationView {
         let infoButton = UIButton.buttonWithType(UIButtonType.InfoDark) as! UIButton
         infoButton.addTarget(self, action: "infoButtonSelected:", forControlEvents: UIControlEvents.TouchUpInside)
         rightCalloutAccessoryView = infoButton
+    }
+
+    override init(annotation: MKAnnotation, reuseIdentifier: String) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        setObservation(self.annotation as! Observation)
     }
     
     func infoButtonSelected(sender: AnyObject) {

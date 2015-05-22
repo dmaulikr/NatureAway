@@ -112,7 +112,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
         if (overlay is MKCircle) {
             var pr = MKCircleRenderer(overlay: overlay);
-            pr.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.05);
+            pr.fillColor = UIColor.nature_Green.colorWithAlphaComponent(0.1);
             return pr;
         }
         
@@ -133,7 +133,9 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
                 (annotationView as! ObservationAnnotationView).delegate = self
                 annotationView.canShowCallout = true
             } else {
-                annotationView.annotation = annotation
+                if let observationView = annotationView as? ObservationAnnotationView {
+                    observationView.setObservation(observation)
+                }
             }
             return annotationView
         } else if let observation = annotation as? RentalListing {
