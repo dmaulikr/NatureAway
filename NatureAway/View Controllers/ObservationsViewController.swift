@@ -39,17 +39,19 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("ObservationCell", forIndexPath: indexPath) as? ObservationCell {
             if let observations = observations {
-                var observation = observations[indexPath.row]
+                let observation = observations[indexPath.row]
                 cell.nameLabel.text = observation.primaryName
                 
                 if let urlString = observation.firstSmallUrlString, url = NSURL(string: urlString) {
-                    let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 120)
+                    let imageRequest = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringCacheData, timeoutInterval: 120)
                     cell.observationImageView.asyncLoadWithUrlRequest(imageRequest)
+//                    cell.observationImageView.
+                    //cell.observationImageView.setImageWithURL(url)
                 }
                 
                 if let currentLocation = self.currentLocation {
-                    var location = CLLocation(latitude: observation.coordinate.latitude, longitude: observation.coordinate.longitude)
-                    var distance = location.distanceFromLocation(CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude))
+                    let location = CLLocation(latitude: observation.coordinate.latitude, longitude: observation.coordinate.longitude)
+                    let distance = location.distanceFromLocation(CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude))
                     cell.distanceLabel.text = NSString(format: "%.1f mi", distance/1600) as String
                 }
             }
@@ -108,7 +110,7 @@ class ObservationsViewController: UIViewController, UITableViewDataSource, UITab
         if let currentLocation = currentLocation {
         
         let location = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
-        var sortedObservations = observations.sorted({ (a: Observation, b: Observation) -> Bool in
+        let sortedObservations = observations.sort({ (a: Observation, b: Observation) -> Bool in
         let distanceA = location.distanceFromLocation(CLLocation(latitude: a.coordinate.latitude, longitude: a.coordinate.longitude))
         let distanceB = location.distanceFromLocation(CLLocation(latitude: b.coordinate.latitude, longitude: b.coordinate.longitude))
         return distanceA < distanceB

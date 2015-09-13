@@ -38,7 +38,7 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.listings = listings
                 } else {
                     if let error = error {
-                        println(error)
+                        print(error)
                     }
                 }
             }
@@ -48,7 +48,7 @@ class ListingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        println(listings)
+        print(listings)
         if let cell = tableView.dequeueReusableCellWithIdentifier("RentalListingCell", forIndexPath: indexPath) as? RentalListingCell {
             if let listings = listings {
                 cell.observationCoordinate = coordinate

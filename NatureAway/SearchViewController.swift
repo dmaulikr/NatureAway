@@ -35,8 +35,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UICollectionV
     }
 
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        var taxonName = searchBar.text
-        search(taxonName)
+        if let taxonName = searchBar.text {
+         search(taxonName)
+        }
     }
     
     func search(taxonName: String) {

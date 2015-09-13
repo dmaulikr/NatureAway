@@ -18,7 +18,7 @@ class ObservationAnnotationView: MKAnnotationView {
     weak var delegate: ObservationAnnotationViewDelegate?
 
     // Required for MKAnnotationView
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
@@ -35,7 +35,7 @@ class ObservationAnnotationView: MKAnnotationView {
     }
     */
 
-    override init(annotation: MKAnnotation, reuseIdentifier: String) {
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         let observation = self.annotation as! Observation
         if let taxonName = observation.iconicTaxonName {
@@ -62,7 +62,7 @@ class ObservationAnnotationView: MKAnnotationView {
         }
 
         if let urlString = observation.firstSmallUrlString {
-            var imageView = UIImageView(frame: CGRectMake(15, 0, 40, 40))
+            let imageView = UIImageView(frame: CGRectMake(15, 0, 40, 40))
             if let url = NSURL(string: urlString) {
                 imageView.asyncLoadWithUrl(url)
                 imageView.contentMode = .ScaleAspectFit
@@ -70,7 +70,7 @@ class ObservationAnnotationView: MKAnnotationView {
             }
         }
         
-        let infoButton = UIButton.buttonWithType(UIButtonType.InfoDark) as! UIButton
+        let infoButton = UIButton(type: UIButtonType.InfoDark)
         infoButton.addTarget(self, action: "infoButtonSelected:", forControlEvents: UIControlEvents.TouchUpInside)
         rightCalloutAccessoryView = infoButton
     }

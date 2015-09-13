@@ -30,7 +30,7 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -87,7 +87,7 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func loadImages() {
-        for (index, imageView) in enumerate(pageImageViews) {
+        for (index, imageView) in pageImageViews.enumerate() {
             if let imageView = imageView {
                 imageView.contentMode = .ScaleAspectFit
                 imageView.clipsToBounds = true
@@ -101,7 +101,7 @@ class ListingsDetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLayoutSubviews() {
         
         // Have to do this here so we know the true size of the scroll view
-        for (index, imageView) in enumerate(pageImageViews) {
+        for (index, imageView) in pageImageViews.enumerate() {
             if let imageView = imageView {
                 var frame = scrollView.frame
                 frame.origin.x = frame.size.width * CGFloat(index)

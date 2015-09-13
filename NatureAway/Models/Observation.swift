@@ -64,7 +64,7 @@ class Observation: NSObject, MKAnnotation {
     
     // Required for MKAnnotation
     let coordinate: CLLocationCoordinate2D
-    var title: String
+    var title: String?
 
     init(dictionary: NSDictionary) {
 

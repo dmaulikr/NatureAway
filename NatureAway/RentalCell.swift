@@ -33,7 +33,7 @@ class RentalCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        var selectedBackgroundView = UIView()
+        let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = UIColor.nature_Green
         self.selectedBackgroundView = selectedBackgroundView
     }

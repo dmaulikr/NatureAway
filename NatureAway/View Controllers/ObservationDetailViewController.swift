@@ -37,7 +37,7 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
@@ -96,7 +96,7 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
     }
     
     func loadImages() {
-        for (index, imageView) in enumerate(pageImageViews) {
+        for (index, imageView) in pageImageViews.enumerate() {
             if let imageView = imageView {
                 imageView.contentMode = .ScaleAspectFit
                 imageView.clipsToBounds = true
@@ -110,7 +110,7 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
     override func viewDidLayoutSubviews() {
         
         // Have to do this here so we know the true size of the scroll view
-        for (index, imageView) in enumerate(pageImageViews) {
+        for (index, imageView) in pageImageViews.enumerate() {
             if let imageView = imageView {
                 var frame = scrollView.frame
                 frame.origin.x = frame.size.width * CGFloat(index)
@@ -175,7 +175,7 @@ class ObservationDetailViewController: UIViewController, UIScrollViewDelegate, U
                     self.activityIndicator.hidden = true
                 } else {
                     if let error = error {
-                        println(error)
+                        print(error)
                     }
                 }
             }

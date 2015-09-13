@@ -12,14 +12,14 @@ import MapKit
 
 class INaturalistClient: BDBOAuth1RequestOperationManager {
     
-    static let iNaturalistConsumerKey = "9da2feb4595aaf011739ccd2a1f488777da0ce17fbf723689913ee724e0bdfd6"
-    static let iNaturalistConsumerSecret = "f5e0a02518f54eb5a3da54d6642f1160a0cccb49464c9c5d3a5d3046a23e6497"
+    static let iNaturalistConsumerKey = "yourkeyhere"
+    static let iNaturalistConsumerSecret = "yoursecrethere"
     static let iNaturalistBaseUrlString = "https://www.inaturalist.org"
  
     static let sharedInstance = INaturalistClient(baseURL: NSURL(string: iNaturalistBaseUrlString), consumerKey: iNaturalistConsumerKey, consumerSecret: iNaturalistConsumerSecret)
     
     func getObservations(taxonId: Int64, completion: ([Observation]?, NSError?) -> Void) {
-        var params = NSMutableDictionary()
+        let params = NSMutableDictionary()
         params["taxon_id"] = String(taxonId)
         self.fetchObservations(params, completion: completion)
     }
@@ -27,10 +27,10 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
     func getObservationsAtLocation(taxonId: Int64, center: CLLocationCoordinate2D, radius: Double, completion: ([Observation]?, NSError?) -> Void) {
         
         // calculate bounding area from center and radius
-        var neBound = locationWithBearing(M_PI_4, distanceMeters: radius, origin: center)
-        var swBound = locationWithBearing(M_PI_4 + M_PI, distanceMeters: radius, origin: center)
+        let neBound = locationWithBearing(M_PI_4, distanceMeters: radius, origin: center)
+        let swBound = locationWithBearing(M_PI_4 + M_PI, distanceMeters: radius, origin: center)
         
-        var params = NSMutableDictionary()
+        let params = NSMutableDictionary()
         params["taxon_id"] = String(taxonId)
         params["per_page"] = 100
         params["nelat"] = neBound.latitude
@@ -44,9 +44,9 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
                     
                     // The API unfortunately doesn't respect the bounds of the search query correctly so we need to do some extra filtering
                     // Filter out any observations that fall outside the search boundary
-                    println("Observations: \(response.count)")
+                    print("Observations: \(response.count)")
                     let filteredObservations = self.filterObservations(response, swBound: swBound, neBound: neBound)
-                    println("Filtered Observations: \(filteredObservations.count)")
+                    print("Filtered Observations: \(filteredObservations.count)")
                     completion(filteredObservations, nil)
                 } else {
                     completion(response, error)
@@ -81,30 +81,30 @@ class INaturalistClient: BDBOAuth1RequestOperationManager {
         self.GET("observations.json", parameters: params,
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 if let array = response as? [NSDictionary] {
-                    var observations = Observation.observationsWithArray(array)
+                    let observations = Observation.observationsWithArray(array)
                     completion(observations, nil)
                 }
                 completion(nil, nil)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println(error)
+                print(error)
                 completion(nil, error)
         })
     }
 
     func getSpecies(taxonName: String, completion: ([Species]?, NSError?) -> Void) {
-        var params = NSMutableDictionary()
+        let params = NSMutableDictionary()
         params["q"] = taxonName
         self.GET("/taxa/search.json", parameters: params,
             success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 if let array = response as? [NSDictionary] {
-                    var species = Species.speciesWithArray(array)
+                    let species = Species.speciesWithArray(array)
                     completion(species, nil)
                 }
                 completion(nil, nil)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println(error)
+                print(error)
                 completion(nil, error)
         })
     }

@@ -297,7 +297,9 @@
 		552D23BA1B0468C80034A2C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = rateva;
 				TargetAttributes = {
 					552D23C11B0468C80034A2C5 = {
@@ -473,6 +475,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -541,6 +544,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = NatureAway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rateva.com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = NatuRentals;
 				SWIFT_OBJC_BRIDGING_HEADER = "NatureAway/NatureAway-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -555,6 +559,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = NatureAway/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rateva.com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = NatuRentals;
 				SWIFT_OBJC_BRIDGING_HEADER = "NatureAway/NatureAway-Bridging-Header.h";
 			};
@@ -574,6 +579,7 @@
 				);
 				INFOPLIST_FILE = NatureAwayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rateva.com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = NatuRentalsTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NatureAway.app/NatureAway";
 			};
@@ -589,6 +595,7 @@
 				);
 				INFOPLIST_FILE = NatureAwayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rateva.com.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = NatuRentalsTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NatureAway.app/NatureAway";
 			};

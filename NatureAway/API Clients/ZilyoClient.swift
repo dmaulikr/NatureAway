@@ -9,14 +9,14 @@
 import Foundation
 
 class ZilyoClient: AFHTTPRequestOperationManager {
-    let mashapeKey = "ks6A6TQraqmshJctKKIsiykTEhKdp1RSy9bjsn9qT8q0D2qGcC"
+    let mashapeKey = "yourkeyhere"
     static let zilyoBaseURL = "https://zilyo.p.mashape.com"
     
     static let sharedInstance = ZilyoClient(baseURL: NSURL(string: zilyoBaseURL))
 
     func getListings(isinstantbook: Bool, latitude: Double, longitude: Double, count: Int = 20, completion: ([RentalListing]?, NSError?) -> Void) {
         
-        var params = NSMutableDictionary()
+        let params = NSMutableDictionary()
         params["isinstantbook"] = isinstantbook
         params["latitude"] = latitude
         params["longitude"] = longitude
@@ -31,12 +31,12 @@ class ZilyoClient: AFHTTPRequestOperationManager {
         
         self.GET("search", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             if let array = response["result"] as? [NSDictionary] {
-                var observations = RentalListing.listingsWithArray(array)
+                let observations = RentalListing.listingsWithArray(array)
                 completion(observations, nil)
             }
             completion(nil, nil)
             }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in completion(nil, error)
-                println(error)
+                print(error)
         })
     }
 }

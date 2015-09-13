@@ -16,8 +16,10 @@ extension UIImageView {
     
     func asyncLoadWithUrlRequest(request: NSURLRequest) {
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
-            let image = UIImage(data: data)
-            self.image = image
+            if let data = data {
+                let image = UIImage(data: data)
+                self.image = image
+            }
         }
     }
 }

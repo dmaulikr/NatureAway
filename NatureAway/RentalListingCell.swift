@@ -29,8 +29,8 @@ class RentalListingCell: UITableViewCell {
                     rentalImage.setImageWithURL(NSURL(string: smallUrls[0]))
                 }
                 if let  observationCoordinate = observationCoordinate {
-                    var location = CLLocation(latitude: listing.coordinate!.latitude, longitude: listing.coordinate!.longitude)
-                    var distance = location.distanceFromLocation(CLLocation(latitude: observationCoordinate.latitude, longitude: observationCoordinate.longitude))
+                    let location = CLLocation(latitude: listing.coordinate!.latitude, longitude: listing.coordinate!.longitude)
+                    let distance = location.distanceFromLocation(CLLocation(latitude: observationCoordinate.latitude, longitude: observationCoordinate.longitude))
                     distanceLabel.text = NSString(format: "%.1f mi", distance/1600) as String
                 }
             }
@@ -45,7 +45,7 @@ class RentalListingCell: UITableViewCell {
         rentalImage.addGestureRecognizer(tapGesture)
         rentalImage.userInteractionEnabled = true
         
-        var selectedBackgroundView = UIView()
+        let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = UIColor.nature_Green
         self.selectedBackgroundView = selectedBackgroundView
     }

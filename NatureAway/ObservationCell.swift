@@ -22,7 +22,7 @@ class ObservationCell: UITableViewCell {
         observationImageView.addGestureRecognizer(tapGesture)
         observationImageView.userInteractionEnabled = true
         
-        var selectedBackgroundView = UIView()
+        let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = UIColor.nature_Green
         self.selectedBackgroundView = selectedBackgroundView
     }

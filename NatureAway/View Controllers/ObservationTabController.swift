@@ -43,9 +43,10 @@ class ObservationTabController: UITabBarController, MapViewControllerDelegate, C
     }
     
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.count > 0 {
-            if let controllers = self.viewControllers, location = locations[0] as? CLLocation {
+            if let controllers = self.viewControllers {
+                let location = locations[0]
                 for controller in controllers {
                     if let controller = controller as? ObservationTab {
                         controller.currentLocation = location.coordinate

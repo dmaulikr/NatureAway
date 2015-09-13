@@ -34,7 +34,9 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     
     private var observations: [Observation]? {
         willSet {
-            mapView?.removeAnnotations(observations)
+            if let observations = observations {
+                mapView?.removeAnnotations(observations)
+            }
         }
         didSet {
             setupMap()
@@ -46,11 +48,13 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
-        if let currentLocation = self.currentLocation {
+        if let currentLocation = currentLocation {
             searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: searchRadius)
-            mapView.addOverlay(searchRadiusCircle);
-            let region = MKCoordinateRegionMakeWithDistance(currentLocation, searchRadius, 3 * searchRadius)
-            self.mapView.setRegion(region, animated: true)
+            if let searchRadiusCircle = searchRadiusCircle {
+                mapView.addOverlay(searchRadiusCircle);
+                let region = MKCoordinateRegionMakeWithDistance(currentLocation, searchRadius, 3 * searchRadius)
+                self.mapView.setRegion(region, animated: true)
+            }
         }
         searchBar.delegate = self
         geocoder = CLGeocoder()
@@ -70,9 +74,11 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     }
     
     @IBAction func sliderChanged(sender: AnyObject) {
-        mapView.removeOverlay(searchRadiusCircle)
-        searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: searchRadius)
-        mapView.addOverlay(searchRadiusCircle)
+        if let searchRadiusCircle = searchRadiusCircle {
+            mapView.removeOverlay(searchRadiusCircle)
+            self.searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: searchRadius)
+            mapView.addOverlay(searchRadiusCircle)
+        }
     }
     
     @IBAction func searchClicked(sender: AnyObject) {
@@ -80,69 +86,80 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        var location = searchBar.text
-        geocoder?.geocodeAddressString(location
-            , completionHandler: { (result: [AnyObject]!, error: NSError!) -> Void in
+        if let location = searchBar.text {
+            geocoder?.geocodeAddressString(location, completionHandler: { (result: [CLPlacemark]?, error: NSError?) -> Void in
                 if error != nil {
-                    println("error geocoding addresss")
+                    print("error geocoding addresss")
                     return
                 }
                 
-                if result.count > 0 {
-                    let placemark = result[0] as! CLPlacemark
-                    self.updateSearchArea(placemark.location.coordinate)
+                if let result = result where result.count > 0 {
+                    let placemark = result[0]
+                    if let location = placemark.location {
+                        self.updateSearchArea(location.coordinate)
+                    }
                 }
                 
-        })
+            })
+        }
     }
     
     private func updateSearchArea(center: CLLocationCoordinate2D) {
         let region = MKCoordinateRegionMakeWithDistance(center, searchRadius, 2 * searchRadius)
         self.mapView.setRegion(region, animated: true)
-        mapView?.removeAnnotations(observations)
+        if let observations = observations {
+            mapView?.removeAnnotations(observations)
+        }
         self.delegate?.searchAreaUpdated(center, radius: searchRadius)
     }
     
-    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
-        mapView.removeOverlay(searchRadiusCircle)
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if let searchRadiusCircle = searchRadiusCircle {
+            mapView.removeOverlay(searchRadiusCircle)
+        }
         searchRadiusCircle = MKCircle(centerCoordinate: mapView.centerCoordinate, radius: searchRadius)
-        mapView.addOverlay(searchRadiusCircle)
+        if let searchRadiusCircle = searchRadiusCircle {
+            mapView.addOverlay(searchRadiusCircle)
+        }
     }
     
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if (overlay is MKCircle) {
-            var pr = MKCircleRenderer(overlay: overlay);
+            let pr = MKCircleRenderer(overlay: overlay);
             pr.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.05);
             return pr;
         }
-        
-        return nil
+        return MKOverlayRenderer()
     }
     
-    func mapView(mapView: MKMapView!, didUpdateUserLocation
-        userLocation: MKUserLocation!) {
-            mapView.centerCoordinate = userLocation.location.coordinate
+    func mapView(mapView: MKMapView, didUpdateUserLocation
+        userLocation: MKUserLocation) {
+            if let location = userLocation.location {
+                mapView.centerCoordinate = location.coordinate
+            }
     }
 
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 
-        if let observation = annotation as? Observation {
+        if let _ = annotation as? Observation {
             var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("Observation")
             if annotationView == nil {
                 annotationView = ObservationAnnotationView(annotation: annotation, reuseIdentifier: "Observation")
-                (annotationView as! ObservationAnnotationView).delegate = self
-                annotationView.canShowCallout = true
-            } else {
+                if let annotationView = annotationView as? ObservationAnnotationView {
+                    annotationView.delegate = self
+                    annotationView.canShowCallout = true
+                }
+            } else if let annotationView = annotationView {
                 annotationView.annotation = annotation
             }
             return annotationView
-        } else if let observation = annotation as? RentalListing {
+        } else if let _ = annotation as? RentalListing {
             var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("Listing")
             if annotationView == nil {
                 annotationView = ListingAnnotationView(annotation: annotation, reuseIdentifier: "Listing")
-                annotationView.canShowCallout = true
+                annotationView?.canShowCallout = true
             } else {
-                annotationView.annotation = annotation
+                annotationView?.annotation = annotation
             }
             return annotationView
         } else {
@@ -152,7 +169,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     
     func annotationInfoSelected(observation: Observation) {
 
-        var viewController = ObservationDetailViewController(nibName: "ObservationDetailViewController", bundle: nil)
+        let viewController = ObservationDetailViewController(nibName: "ObservationDetailViewController", bundle: nil)
         viewController.observation = observation
         self.navigationController?.pushViewController(viewController, animated: true)
     }
