@@ -86,6 +86,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+		searchBar.resignFirstResponder()
         if let location = searchBar.text {
             geocoder?.geocodeAddressString(location, completionHandler: { (result: [CLPlacemark]?, error: NSError?) -> Void in
                 if error != nil {
@@ -126,7 +127,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if (overlay is MKCircle) {
             let pr = MKCircleRenderer(overlay: overlay);
-            pr.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.05);
+            pr.fillColor = UIColor.nature_Green.colorWithAlphaComponent(0.1);
             return pr;
         }
         return MKOverlayRenderer()
@@ -141,7 +142,7 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
 
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
 
-        if let _ = annotation as? Observation {
+        if let observation = annotation as? Observation {
             var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("Observation")
             if annotationView == nil {
                 annotationView = ObservationAnnotationView(annotation: annotation, reuseIdentifier: "Observation")
@@ -149,8 +150,8 @@ class MapViewController: UIViewController, ObservationTab, MKMapViewDelegate, Ob
                     annotationView.delegate = self
                     annotationView.canShowCallout = true
                 }
-            } else if let annotationView = annotationView {
-                annotationView.annotation = annotation
+            } else if let observationView = annotationView as? ObservationAnnotationView {
+                observationView.setObservation(observation)
             }
             return annotationView
         } else if let _ = annotation as? RentalListing {
